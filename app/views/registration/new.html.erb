@@ -1,0 +1,23 @@
+<div class="form-parent">
+<div class="form-child">
+<%= form_with(url:'/sign_up', method: "post") do |form| %>
+<h1>Sign Up</h1>
+  <div class="form-box">
+    <%= form.text_field "user[name]", placeholder:"   Name", autofocus: true %>
+  </div>
+  <div class="form-box">
+    <%= form.email_field "user[email]", placeholder:"   Email" %>
+  </div>
+  <div class="form-box">
+    <%= form.text_field "user[phone_number]", placeholder:"   Phone Number" %>
+  </div>
+  <div class="form-box">
+    <%= form.password_field "user[password]", placeholder:"   Password" %>
+  </div>
+  <div class="form-buttons">
+    <%= form.submit "Register" %>
+    <%= submit_tag("Reset", { :name => 'reset', :id => 'reset', :type => 'reset'}) %>
+  </div>
+<%end%>
+</div>
+</div>

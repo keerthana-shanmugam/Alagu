@@ -1,0 +1,14 @@
+<%= form_with url:'/signin' do |form| %>
+<h1>Sign Up</h1>
+  
+  <div class="login-box">
+    <%= form.email_field "user[email]", placeholder:"   Email", autofocus: true %>
+  </div>
+  <div class="login-box">
+    <%= form.password_field "user[password]", placeholder:"   Password" %>
+  </div>
+   <div class="login-buttons">
+    <%= form.submit "Login" %>
+    <%= submit_tag("Reset", { :name => 'reset', :id => 'reset', :type => 'reset'}) %>
+  </div>
+  <%end%>

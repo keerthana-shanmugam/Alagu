@@ -1,0 +1,169 @@
+<div class="first-nav">
+  <div class="container">
+    <label class="logo"> azhagu</label>
+    <input type="search" name="search" placeholder="search" />
+    <span><i class="bx bx-search-alt-2"></i></span>
+    <ul class="box-holder">
+      <li><a href="">Fashion</a></li>
+      <li>
+        <a href=""><i class="bx bxs-user-circle"></i></a>
+      </li>
+      <li>
+        <a href=""><i class="bx bxs-heart"></i></a>
+      </li>
+      <li>
+        <a href=""><i class="bx bxs-shopping-bag"></i></a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="second-nav">
+  <div class="container">
+    <ul>
+      <li><a href="">Catogeries</a></li>
+      <li><a href="">Brands</a></li>
+      <li><a href="">Offers</a></li>
+      <li><a href="">Rewards</a></li>
+      <li><a href="">Beauty Advice</a></li>
+    </ul>
+  </div>
+</div>
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#demo"
+      data-bs-slide-to="0"
+      class="active"
+    ></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  </div>
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag('makeup_carousel2.webp',class:"d-block", style:"width:100%")%>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag('makeup_carousel1.jpg',class:"d-block", style:"width:100%")
+      %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag('makeup_carousel.webp',class:"d-block", style:"width:100%")
+      %>
+    </div>
+  </div>
+  <!-- Left and right controls/icons -->
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#demo"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#demo"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+<div class="main_div">
+  <div class="brands_logo">
+    <h3>Top Brands</h3>
+    <ul class="brand-holder">
+      <li>
+        <%= image_tag('brand_logo/maybelline_logo.png', style:"width:170px") %>
+      </li>
+      <li>
+        <%= image_tag('brand_logo/nivea_logo.png', style:"width:170px") %>
+      </li>
+      <li>
+        <%= image_tag('brand_logo/lakme_logo.png', style:"width:170px") %>
+      </li>
+      <li>
+        <%= image_tag('brand_logo/nykaa_logo.svg', style:"width:170px") %>
+      </li>
+      <li>
+        <%= image_tag('brand_logo/loreal-logo.png', style:"width:170px") %>
+      </li>
+    </ul>
+  </div>
+</div>
+<%# section new products ----------------------- %>
+<div class="container">
+  <h1>New Products</h1>
+
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="card">
+      <%= image_tag('img1.jpg', class: "card-img-top") %>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          This is a wider card with supporting text below as a natural lead-in
+          to additional content. This content is a little bit longer.
+        </p>
+      </div>
+    </div>
+    <div class="card">
+      <%= image_tag('img1.jpg', class: "card-img-top") %>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          This card has supporting text below as a natural lead-in to additional
+          content.
+        </p>
+      </div>
+    </div>
+    <div class="card">
+      <%= image_tag('img1.jpg', class: "card-img-top") %>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          This is a wider card with supporting text below as a natural lead-in
+          to additional content. This card has even longer content than the
+          first to show that equal height action.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# section new products ends ------------------------ %>
+<div class="container">
+  <div class="">
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+  function myFunction() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more");
+    var btnText = document.getElementById("myBtn");
+
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Read more";
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "Read less";
+      moreText.style.display = "inline";
+    }
+  }
+</script>
