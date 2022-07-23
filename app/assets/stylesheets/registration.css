@@ -2,59 +2,92 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/ */
 
-/* .signup-container{
-    background-color: greenyellow;
-    width: 100%;
-    height: 100%;
-} */
-
-/* .main-box{  
-    border: 3px solid red;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: greenyellow;
-
-}
-.form-box{
-   padding: 2%;
+.form-parent {
+  background-color: #fcfbf7;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
-input{
-    width: 300px;
-    height: 50px;
-} */
-
-.form-parent{
-    background-color: greenyellow;
-    height: 100vh;
-    align-items: center;
-}
-
-.form-child{
-    display: flex;
-    justify-content: center;
-}
-
-
-form{
-  /* border: 5px solid rebeccapurple; */
+form {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+  background-color: #edf9ed;
   width: 500px;
+  height: auto;
+  padding: 10px;
   text-align: center;
-  margin-top: 10%;
+  margin-top: 0%;
+  border-radius: 5px;
+  color: #88b2aa;
 }
 
-
-.form-box{
-    padding: 2%;
+.form-child {
+  display: block;
+  justify-content: center;
+  padding: 3px;
+}
+.flash-error {
+  color: red;
 }
 
-input{
-    width: 200px;
+.form-box {
+  padding-left: 15px;
+  width: 300px;
+  height: 50px;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  color: #88b2aa;
 }
 
-.form-buttons input{
-    width: 100px;
+.form-box::placeholder {
+  color: #88b2aa;
+}
+
+.form-box:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px #808077;
+  border-color: #808077;
+}
+.form-box:hover {
+  border-radius: 5px;
+  color: #88b2aa;
+}
+
+.form-buttons {
+  padding: 5px;
+  width: 140px;
+  height: 40px;
+  border: none;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  background-color: #fcfbf7;
+  color: #88b2aa;
+  transition: ease-in-out 0.2s;
+}
+
+.form-buttons:hover {
+  background-color: #88b2aa;
+  color: #fcfbf7;
+  border-radius: 5px;
+}
+
+.form-buttons:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px #88b2aa;
+}
+
+.p-sign {
+  color: #808077;
+}
+
+.btn-sign {
+  color: #88b2aa;
+}
+
+.btn-sign:hover {
+  color: #4a7f76;
+  cursor: pointer;
 }

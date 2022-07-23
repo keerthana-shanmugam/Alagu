@@ -10,14 +10,15 @@ class SessionsController < ApplicationController
        
       redirect_to root_path
     else
-      render plain: "Fail"
+      flash[:error] = "Invaild email or password"
+      redirect_to '/signin'
     end
   end
 
   def destory
     session[:current_user_id] = nil
     @current_user = nil
-    redirect_to "/"
+    redirect_to "/signin"
   end
    
   private
