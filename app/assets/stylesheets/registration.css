@@ -3,30 +3,27 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/ */
 
 .form-parent {
-  background-color: #fcfbf7;
+  background-color: var(--primary);
   height: 100vh;
   align-items: center;
   display: flex;
   justify-content: center;
 }
 
-form {
+.form-child {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
   background-color: #edf9ed;
   width: 500px;
   height: auto;
+  display: block;
   padding: 10px;
+  justify-content: center;
   text-align: center;
   margin-top: 0%;
   border-radius: 5px;
-  color: #88b2aa;
+  color: var(--primary);
 }
 
-.form-child {
-  display: block;
-  justify-content: center;
-  padding: 3px;
-}
 .flash-error {
   color: red;
 }
@@ -39,11 +36,11 @@ form {
   outline: none;
   margin-bottom: 20px;
   margin-top: 10px;
-  color: #88b2aa;
+  color: var(--primary);
 }
 
 .form-box::placeholder {
-  color: #88b2aa;
+  color: var(--primary);
 }
 
 .form-box:focus {
@@ -53,7 +50,7 @@ form {
 }
 .form-box:hover {
   border-radius: 5px;
-  color: #88b2aa;
+  color: var(--primary);
 }
 
 .form-buttons {
@@ -64,27 +61,29 @@ form {
   margin-bottom: 20px;
   margin-top: 10px;
   background-color: #fcfbf7;
-  color: #88b2aa;
+  color: var(--primary);
   transition: ease-in-out 0.2s;
 }
 
 .form-buttons:hover {
-  background-color: #88b2aa;
+  background-color: var(--primary);
   color: #fcfbf7;
   border-radius: 5px;
 }
 
 .form-buttons:focus {
   outline: none;
-  box-shadow: 0px 0px 5px #88b2aa;
+  box-shadow: 0px 0px 5px var(--primary);
 }
 
 .p-sign {
   color: #808077;
+  text-decoration: none;
 }
 
 .btn-sign {
-  color: #88b2aa;
+  color: var(--primary);
+  text-decoration: none;
 }
 
 .btn-sign:hover {

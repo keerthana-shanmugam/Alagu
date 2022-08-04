@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ :root {
+    --primary: #88b2aa;
+    --secondary: #eee;
+    --tertiary: #eee;
+  
+    --bg-primary: #eee;
+    --bg-secondary: #eee;
+    --bg-tertiary: #eee;
+  
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  

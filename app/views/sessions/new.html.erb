@@ -1,15 +1,21 @@
 <div class = "form-parent" >
-<%= form_with url:'/signin' do |form| %>
-  <div class = form-child>
-    <h3>Login</h3>
-    <% if flash[:error]%><p class = "flash-error"><%= flash[:error]%></p><%end%>
-    <%= form.email_field "user[email]",class:"form-box", placeholder:"Email", autofocus: true %>
-    <%= form.password_field "user[password]",class:"form-box" , placeholder:"Password" %>
-    <div>
-      <%= form.submit "LOGIN", class:"form-buttons" %>
-      <%= submit_tag("CLEAR", { :name => 'reset', :id => 'reset', :type => 'reset', :class => 'form-buttons'}) %>
+  <%= form_with url:'/signin' do |form| %>
+    <div class = form-child>
+      <h3>Login</h3>
+      <% if flash[:error]%>
+        <p class = "flash-error"><%= flash[:error]%></p>
+      <%end%>
+      <%= form.email_field "user[email]",class:"form-box", placeholder:"Email", autofocus: true %>
+      <%= form.password_field "user[password]",class:"form-box" , placeholder:"Password" %>
+      <div>
+        <%= form.submit "LOGIN", class:"form-buttons" %>
+        <%= submit_tag("CLEAR", { :name => 'reset', :id => 'reset', :type => 'reset', :class => 'form-buttons'}) %>
+      </div>
+      <p class = "p-sign">Create an account?
+        <%= link_to '/sign_up', class:"btn-sign" do %>
+          <span> Register <span>
+        <% end %>
+      </p>
     </div>
-     <p class = "p-sign">Create an account? <span class = "btn-sign"> Register <span></p>
-  </div>
-<%end%>
+  <%end%>
 </div>

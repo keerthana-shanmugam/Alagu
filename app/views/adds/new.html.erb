@@ -1,0 +1,16 @@
+<%# <h1>Adds#new</h1>
+<p>Find me in app/views/adds/new.html.erb</p> %>
+<div class = "add-main">
+<%= form_with url: "/add_products", method: "post" do |form|%>
+<div class = "add-container">
+<h3>Add products </h3>
+<%= form.text_field "add[name]", placeholder:"Name", class:"text_box" %>
+<%= form.text_field "add[image]", placeholder:"Image_Url", class:"text_box" %>
+<%= form.text_field "add[price]", placeholder:"Price", class:"text_box" %>
+<%= form.text_field "add[catogeries]", placeholder:"Catogries", class:"text_box" %>
+<div>
+<%= form.submit "Add", class: "add-btn"%>
+</div>
+</div>
+<% end %>
+</div>

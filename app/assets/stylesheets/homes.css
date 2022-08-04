@@ -4,15 +4,15 @@
   padding: 0;
 }
 
-.box-holder a,
 .second-nav a {
   text-decoration: none;
-  color: black;
+  color: var(--primary);
 }
 .first-nav {
-  background-color: #88b2aa;
+  background-color: var(--primary);
   height: 80px;
   display: flex;
+  color: white;
 }
 
 .box-holder {
@@ -23,6 +23,12 @@
   font-size: 32px;
   padding: 20px;
   margin-top: -4px;
+}
+.class_link {
+  color: white;
+}
+.class_link:hover{
+  color: #FAEAA1;
 }
 .logo {
   font-size: 32px;
@@ -41,13 +47,14 @@
 .first-nav span i {
   font-size: 18px;
   margin-left: -40px;
+  color: black;
 }
 .second-nav {
   text-align: center;
   height: 50px;
   width: inherit;
   padding-top: 10px;
-  background-color: #fcfbf7;
+  background-color: #FAEAA1;
 }
 .second-nav li {
   display: inline-block;
@@ -55,21 +62,21 @@
   font-size: 18px;
 }
 .second-nav a:hover {
-  color: #88b2aa;
-  border-bottom: 2px solid #88b2aa;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
   font-weight: 500;
 }
 
 #demo img {
-  padding: 20px;
+  padding: 15px;
   height: 400px;
   width: 100%;
 }
 #demo {
-  margin-left: 150px;
-  margin-top: 10px;
+  /* margin-left: 150px; */
+  /* margin-top: 10px; */
   height: 400px;
-  width: 80%;
+  width: 100%;
 }
 .carousel-indicators .button {
   height: 70px;
@@ -91,7 +98,7 @@
   border: 1px solid black;
 }
 .main_div {
-  background-color: #edf9ed;
+  background-color: #C0D9C2;
   width: 100%;
   position: relative;
 }
