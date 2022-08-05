@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
 }
+a{
+  text-decoration: none !important;
+}
 
 .second-nav a {
   text-decoration: none;
@@ -23,6 +26,42 @@
   font-size: 32px;
   padding: 20px;
   margin-top: -4px;
+}
+.box-holder i {
+  color: white;
+}
+.box-holder i:hover{
+  color: #FAEAA1;
+}
+.dropdown {
+  position: relative;
+  z-index: 20;
+}
+
+
+.dropdown-menu.show{
+  background-color: var(--primary);
+  border: 2px solid var(--secondary);
+
+}
+.dropdown-item{
+  font-size: 1.5rem;
+  color: white !important;
+  display: flex;
+ 
+}
+.bx.bx-log-out{
+  font-size: 1.7rem;
+  
+}
+.dropdown-item:hover{
+  background-color: transparent !important;
+  
+}
+.user-name{
+  color: white;
+  font-size: 2rem;
+  text-transform: capitalize;
 }
 .class_link {
   color: white;
@@ -68,7 +107,7 @@
 }
 
 #demo img {
-  padding: 15px;
+  /* padding: 15px; */
   height: 400px;
   width: 100%;
 }
