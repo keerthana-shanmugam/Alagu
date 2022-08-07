@@ -5,7 +5,7 @@
 <div class = "add-container">
 <h3>Add products </h3>
 <%= form.text_field "add[name]", placeholder:"Name", class:"text_box" %>
-<%= form.text_field "add[image]", placeholder:"Image_Url", class:"text_box" %>
+<%= form.file_field "add[image]", placeholder:"Image", class:"text_box" %>
 <%= form.text_field "add[price]", placeholder:"Price", class:"text_box" %>
 <%= form.text_field "add[catogeries]", placeholder:"Catogries", class:"text_box" %>
 <div>

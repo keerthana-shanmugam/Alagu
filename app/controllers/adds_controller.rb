@@ -6,7 +6,7 @@ class AddsController < ApplicationController
   def create
     add = Add.new(product_params)
     if add.save
-      redirect_to '/'
+      redirect_to '/lists/new'
     else
       redirect_to '/adds/new'
     end

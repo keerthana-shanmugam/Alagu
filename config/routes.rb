@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   get "/add_products", to: "adds#new"
   post "/add_products", to: "adds#create"
+
+  get "/list_products", to: "lists#new"
 end

@@ -1,6 +1,5 @@
 <%# <h1>Lists#new</h1>
 <p>Find me in app/views/lists/new.html.erb</p> %>
-
 <div class="first-nav">
   <div class="container">
     <label class="logo"> azhagu</label>
@@ -31,7 +30,6 @@
       <%else%>
         <li class="dropdown">
           <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            
             <i class="bx bxs-user-circle"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -39,7 +37,7 @@
             <li><a class="dropdown-item" href="/signout"> <i class='bx bx-log-out'></i>Logout</a></li>
           </ul>
           <% logged_user = User.find(session[:current_user_id]) %>
-            <label class="user-name"><%= logged_user["name"] %></label>
+          <label class="user-name"><%= logged_user["name"] %></label>
         </li>
       <%end%>
     </ul>
@@ -56,7 +54,27 @@
     </ul>
   </div>
 </div>
+<div class="left">
+  <ul>
+    Catogeries
+    <li>Makeup</li>
+    <li>Face</li>
+    <li>Skin</li>
+    <li>Hair</li>
+  </ul>
+</div>
+<div class="right">
+  <% Add.all.each do |add|%>
+    <div class="box-container">
+      <ul>
+        <li><% add.name %></li>
+        <%= image_tag add.image, class:"list_img"%>
+        <li><% add.price %></li>
+        <li><% add.catogeries %></li>
+      </ul>
+    </div>
+  <%end%>
+</div>
 <% if @current_user.role == "admin" %>
-   Delete, Edit
-
+  Delete, Edit
 <% end %>
