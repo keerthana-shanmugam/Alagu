@@ -67,10 +67,11 @@
   <% Add.all.each do |add|%>
     <div class="box-container">
       <ul>
-        <li><% add.name %></li>
-        <%= image_tag add.image, class:"list_img"%>
-        <li><% add.price %></li>
-        <li><% add.catogeries %></li>
+        <li> name : <%= add.name %></li>
+     <a href="/wishlist/<%= add['id'] %>">   <%= image_tag add.image, class:"list_img"%></a>
+     <a href="/cart/<%= add['id'] %>">Add to cart</a>
+        <li><%= add.price %></li>
+        <li><%= add.catogeries %></li>
       </ul>
     </div>
   <%end%>

@@ -28,7 +28,6 @@
       <%else%>
         <li class="dropdown">
           <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            
             <i class="bx bxs-user-circle"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -36,7 +35,7 @@
             <li><a class="dropdown-item" href="/signout"> <i class='bx bx-log-out'></i>Logout</a></li>
           </ul>
           <% logged_user = User.find(session[:current_user_id]) %>
-            <label class="user-name"><%= logged_user["name"] %></label>
+          <label class="user-name"><%= logged_user["name"] %></label>
         </li>
       <%end%>
     </ul>
@@ -158,49 +157,45 @@
 </div>
 <%# section new products ends ------------------------ %>
 <div class="slick_carousel">
-            <div>
-                <h3>
-                    <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img1" width="450px" height="280px">
-                </h3>
-            </div>
-            <div>
-                <h3>
-                    <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img2" width="450px" height="280px">
-                </h3>
-            </div>
-            <div>
-                <h3>
-                    <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img3" width="450px" height="280px">
-                </h3>
-            </div>
-            <div>
-                <h3>
-                    <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img4" width="450px" height="280px">
-                </h3>
-            </div>
-            <div>
-                <h3>
-                    <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img5" width="450px" height="280px">
-                </h3>
-            </div>
-          
-        </div>
-
- 
+  <div>
+    <h3>
+      <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+    </h3>
+  </div>
+  <div>
+    <h3>
+      <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+    </h3>
+  </div>
+  <div>
+    <h3>
+      <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+    </h3>
+  </div>
+  <div>
+    <h3>
+      <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+    </h3>
+  </div>
+  <div>
+    <h3>
+      <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+    </h3>
+  </div>
+</div>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('.slick_carousel').slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay: false,
-            autoplaySpeed: 2000,
-            slidesToShow: 3,
-            arrows: true,
-            dots: false      
-            });
-    });
-  </script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.slick_carousel').slick({
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          autoplay: false,
+          autoplaySpeed: 2000,
+          slidesToShow: 3,
+          arrows: true,
+          dots: false
+          });
+  });
+</script>

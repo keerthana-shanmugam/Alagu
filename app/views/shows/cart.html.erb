@@ -1,0 +1,12 @@
+welcome to cart !
+
+
+<div class="wl-container">
+  <% @items.each do |wishlist_items| %>
+
+  <h1> <%= wishlist_items.price%> </h1>    
+    <%= image_tag wishlist_items.image%> 
+     <% end %>
+     
+    
+ </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_06_095351) do
+ActiveRecord::Schema.define(version: 2022_08_08_112241) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 2022_08_06_095351) do
     t.binary "image"
   end
 
+  create_table "carts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "add_id", null: false
+    t.index ["add_id"], name: "index_carts_on_add_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -59,6 +66,15 @@ ActiveRecord::Schema.define(version: 2022_08_06_095351) do
     t.string "role", default: "user"
   end
 
+  create_table "wishlists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "add_id", null: false
+    t.index ["add_id"], name: "index_wishlists_on_add_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "carts", "adds"
+  add_foreign_key "wishlists", "adds"
 end

@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/ */
 
 .list_img {
-    width: 100px;
+    width: 200px;
     height: 200px;
 }
-.box-container {
-    width: 150px;
+/* .box-container {
+    width: 300px;
     height: 400px;
     border: 2px solid red;
 }
@@ -19,4 +19,9 @@
     border: 2px solid blue;
     width: 200px;
     height: auto;
+} */
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
 }

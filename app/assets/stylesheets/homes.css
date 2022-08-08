@@ -184,8 +184,9 @@ a{
 
 .home_offer_img1 {
   border-radius: 20px;
+  margin-left: 30px;
 }
-.home_offer_img2 {
+/* .home_offer_img2 {
   border-radius: 20px;
 }
 .home_offer_img3 {
@@ -196,7 +197,7 @@ a{
 }
 .home_offer_img5 {
   border-radius: 20px;
-}
+} */
 
 
 

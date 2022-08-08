@@ -1,0 +1,17 @@
+<h1>Shows#wishlist</h1>
+<p>Find me in app/views/shows/wishlist.html.erb</p>
+
+
+<div class="wl-container">
+  <% @items.each do |wishlist_items| %>
+
+  <h1> <%= wishlist_items.price%> </h1>    
+    <%= image_tag wishlist_items.image%> 
+     <% end %>
+     
+    
+ </div>
+
+
+
+
