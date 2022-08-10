@@ -17,8 +17,10 @@ Rails.application.routes.draw do
   post "/add_products", to: "adds#create"
 
   get "/list_products", to: "lists#new"
+
   get '/wishlist/:product_id', to: 'lists#wishlist_items'
   get '/wishlists', to: 'shows#wishlist'
+  
   get '/cart/:product_id', to: 'lists#add_cart_items'
   get '/cart', to: 'shows#cart'
 end

@@ -12,7 +12,7 @@
 
 .add-container {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
-  background-color: #edf9ed;
+  background-color: var(--secondary);
   width: 500px;
   height: auto;
   display: block;
@@ -33,4 +33,57 @@
   margin-bottom: 20px;
   margin-top: 10px;
   color: var(--primary);
+}
+
+
+.text_box::placeholder {
+  color: var(--primary);
+}
+
+.text_box:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px #808077;
+  border-color: #808077;
+}
+.text_box:hover {
+  border-radius: 5px;
+  color: var(--primary);
+}
+
+.add-btn {
+  padding: 5px;
+  width: 140px;
+  height: 40px;
+  border: none;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  background-color: var(--tertiary);
+  color: var(--primary);
+  transition: ease-in-out 0.2s;
+}
+
+.add-btn:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+  border-radius: 5px;
+}
+
+.add-btn:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px var(--primary);
+}
+
+.p-sign {
+  color: #808077;
+  text-decoration: none;
+}
+
+.btn-sign {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.btn-sign:hover {
+  color: var(--primary);
+  cursor: pointer;
 }

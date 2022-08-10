@@ -15,7 +15,7 @@ a{
   background-color: var(--primary);
   height: 80px;
   display: flex;
-  color: white;
+  color: var(--white);
 }
 
 .box-holder {
@@ -28,10 +28,10 @@ a{
   margin-top: -4px;
 }
 .box-holder i {
-  color: white;
+  color: var(--white);
 }
 .box-holder i:hover{
-  color: #FAEAA1;
+  color: var(--secondary);
 }
 .dropdown {
   position: relative;
@@ -46,7 +46,7 @@ a{
 }
 .dropdown-item{
   font-size: 1.5rem;
-  color: white !important;
+  color: var(--white) !important;
   display: flex;
  
 }
@@ -59,15 +59,18 @@ a{
   
 }
 .user-name{
-  color: white;
+  color: var(--white);
   font-size: 2rem;
   text-transform: capitalize;
 }
 .class_link {
-  color: white;
+  color: var(--white);
+}
+.class_link p {
+  color: var(--black);
 }
 .class_link:hover{
-  color: #FAEAA1;
+  color: var(--secondary);
 }
 .logo {
   font-size: 32px;
@@ -86,14 +89,14 @@ a{
 .first-nav span i {
   font-size: 18px;
   margin-left: -40px;
-  color: black;
+  color: var(--black);;
 }
 .second-nav {
   text-align: center;
   height: 50px;
   width: inherit;
   padding-top: 10px;
-  background-color: #FAEAA1;
+  background-color: var(--secondary);
 }
 .second-nav li {
   display: inline-block;
@@ -120,24 +123,24 @@ a{
 .carousel-indicators .button {
   height: 70px;
   width: 70px;
-  outline: black;
+  outline: var(--black);
   background-color: rgba(0, 0, 0, 0.3);
   background-size: 100%, 100%;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid var(--black);
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   height: 100px;
   width: 100px;
-  outline: black;
+  outline: var(--black);
   background-color: rgba(0, 0, 0, 0.3);
   background-size: 100%, 100%;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid var(--black);
 }
 .main_div {
-  background-color: #C0D9C2;
+  background-color: var(--tertiary);
   width: 100%;
   position: relative;
 }

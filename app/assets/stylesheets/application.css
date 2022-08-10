@@ -15,9 +15,15 @@
  */
 
  :root {
-    --primary: #88b2aa;
-    --secondary: #eee;
-    --tertiary: #eee;
+    --primary: #6D8B74;
+
+    --secondary: #EFEAD8;
+
+    --tertiary: #F8F8F8;
+
+    --white: white;
+
+    --black: black;
   
     --bg-primary: #eee;
     --bg-secondary: #eee;

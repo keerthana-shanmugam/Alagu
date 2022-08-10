@@ -1,15 +1,14 @@
-<%# <h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p> %>
+<!-- <%# <h1>Lists#new</h1>
+<p>Find me in app/views/lists/new.html.erb</p> %> -->
 <div class="first-nav">
   <div class="container">
     <label class="logo"> azhagu</label>
-    <input type="search" name="search" placeholder="search" />
-    <span><i class="bx bx-search-alt-2"></i></span>
+    <span> <input type="submit" value="search" class=" "><i class="bx bx-search-alt-2"></i></span>
     <ul class="box-holder">
       <%# <li><a href="">Fashion</a></li> %>
       <li>
         <%= link_to '/', class: "class_link" do %>
-          <i class="bx bxs-heart"></i>
+          <i class="bx bxs-heart"><span><%= @wishlist_count %></span></i>
         <% end %>
       </li>
       <li>
@@ -54,28 +53,58 @@
     </ul>
   </div>
 </div>
-<div class="left">
-  <ul>
-    Catogeries
-    <li>Makeup</li>
-    <li>Face</li>
-    <li>Skin</li>
-    <li>Hair</li>
-  </ul>
-</div>
-<div class="right">
-  <% Add.all.each do |add|%>
-    <div class="box-container">
-      <ul>
-        <li> name : <%= add.name %></li>
-     <a href="/wishlist/<%= add['id'] %>">   <%= image_tag add.image, class:"list_img"%></a>
-     <a href="/cart/<%= add['id'] %>">Add to cart</a>
-        <li><%= add.price %></li>
-        <li><%= add.catogeries %></li>
-      </ul>
+<div class="catogeries_main_div">
+  <div class="catogeries_sub_div">
+    <div class="left">
+      <ul class="list_content">
+        <div>
+          <li>
+            Makeup
+            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
+          </li>
+          <li>Face 
+            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
+          </li>
+          <li>Skin 
+            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
+          </li>
+          <li>Hair 
+            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
+          </li>
+        </ul>
+      </div>
+      <div class="product_list_div">
+        <% Add.all.each do |add|%>
+          <div class="box-container">
+            <div class="image_content">
+              <%= image_tag add.image, class:"list_img"%>
+            </div>
+            <div class="list_content_div">
+              <div class="ul-list">
+                <ul>
+                  <!-- <a href="/cart/<%= add['id'] %>">Add to cart</a> -->
+                  <li><%= add.name %></li>
+                  <div class="price_div">
+                    <span>&#8377;</span>
+                    <span>
+                      <li><%= add.price %></li>
+                    </span>
+                  </div>
+                </ul>
+              </div>
+              <div class="icon_content_div">
+                <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
+              </div>
+            </div>
+            <div class="sub-btn">
+              <button class="bt btn1">Book now</button>
+              <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
+            </div>
+          </div>
+        <%end%>
+      </div>
     </div>
-  <%end%>
-</div>
-<% if @current_user.role == "admin" %>
-  Delete, Edit
-<% end %>
+  </div>
+  <% if @current_user.role == "admin" %>
+    Delete, Edit
+  <% end %>

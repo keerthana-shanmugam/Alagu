@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
         unless current_user
             redirect_to "/"
         end
+
     end
             
     def current_user
@@ -16,4 +17,5 @@ class ApplicationController < ActionController::Base
             nil
         end
     end
+
 end

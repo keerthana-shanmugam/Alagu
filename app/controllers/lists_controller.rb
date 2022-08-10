@@ -1,8 +1,11 @@
 class ListsController < ApplicationController
-  
+  skip_before_action :ensure_user_logged_in
   def new
     @current_user = current_user
+
+    @wishlist_count = Wishlist.all.length
   end
+
   def wishlist_items
 
     # product_id = params[:product_id]
@@ -31,7 +34,7 @@ render plain: false
       # p "================================================="
       # p "================================================="
       # p "================================================="
-   
+
      end
 
     end
@@ -53,6 +56,7 @@ render plain: false
     # prod_id = {:item_id => product_id}
     # puts "Prod_id is #{prod_id}"
     @wishlist_products = Cart.new(add_id: product_id).save
+
     redirect_to '/lists/new'
   end
   

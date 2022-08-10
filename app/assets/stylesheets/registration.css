@@ -12,7 +12,7 @@
 
 .form-child {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
-  background-color: #edf9ed;
+  background-color: var(--secondary);
   width: 500px;
   height: auto;
   display: block;
@@ -60,14 +60,14 @@
   border: none;
   margin-bottom: 20px;
   margin-top: 10px;
-  background-color: #fcfbf7;
+  background-color: var(--tertiary);
   color: var(--primary);
   transition: ease-in-out 0.2s;
 }
 
 .form-buttons:hover {
   background-color: var(--primary);
-  color: #fcfbf7;
+  color: var(--secondary);
   border-radius: 5px;
 }
 
@@ -87,6 +87,6 @@
 }
 
 .btn-sign:hover {
-  color: #4a7f76;
+  color: var(--primary);
   cursor: pointer;
 }

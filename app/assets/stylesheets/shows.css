@@ -1,0 +1,19 @@
+/* // Place all the styles related to the shows controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/ */
+
+.wl-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 2px solid black;
+}
+.wish-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.wish-img {
+    width: 300px;
+    height: 200px;
+}

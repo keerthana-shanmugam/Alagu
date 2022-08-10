@@ -3,8 +3,9 @@ class ShowsController < ApplicationController
   def wishlist
     @items = Add.joins(:wishlist).all.map do |wishlist|
       wishlist
-  end
-  end
+    end
+   @wishlist_count = Wishlist.all.length
+ end
  
   def cart
     @items = Add.joins(:cart).all.map do |cart|

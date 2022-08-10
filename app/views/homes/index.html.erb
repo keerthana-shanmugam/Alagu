@@ -6,12 +6,13 @@
     <ul class="box-holder">
       <%# <li><a href="">Fashion</a></li> %>
       <li>
-        <%= link_to '/', class: "class_link" do %>
-          <i class="bx bxs-heart"></i>
+        <%= link_to '/wishlists', class: "class_link" do %>
+          <i class="bx bxs-heart"><%= @wishlist_count %></i>
+
         <% end %>
       </li>
       <li>
-        <%= link_to '/', class: "class_link" do %>
+        <%= link_to '/wishlists', class: "class_link" do %>
           <i class="bx bxs-shopping-bag"></i>
         <% end %>
       </li>
