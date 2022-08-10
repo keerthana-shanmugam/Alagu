@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Git add
+git commit -m "testing dev branch"
+git push -u origin dev (for first time)
+git push origin dev (for every time)
+
