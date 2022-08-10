@@ -1,7 +1,7 @@
+# frozen_string_literal: true
+
 class AddsController < ApplicationController
-  
-  def new
-  end
+  def new; end
 
   def create
     add = Add.new(product_params)
@@ -13,7 +13,8 @@ class AddsController < ApplicationController
   end
 
   private
+
   def product_params
-    params.require(:add).permit(:name , :image , :price , :catogeries)
+    params.require(:add).permit(:name, :image, :price, :catogeries)
   end
 end
