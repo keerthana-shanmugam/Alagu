@@ -56,7 +56,7 @@
 <div class="second-nav">
   <div class="container">
     <ul>
-      <li><a href="">Catogeries</a></li>
+      <li><a href="/list_products">Catogeries</a></li>
       <li><a href="">Brands</a></li>
       <li><a href="">Offers</a></li>
       <li><a href="">Rewards</a></li>
@@ -66,13 +66,15 @@
 </div>
 <div class="wl-container">
   <% @items.each do |wishlist_items| %>
-    <div>
-      <div class = "wishlist-img">
+    <div class = "listing-box">
+      <div class = "wishlt-imisg">
         <%= image_tag Add.find(wishlist_items.add_id).image, class:"wish-img" %>
       </div>
       <div class = "wishlist-price">
         <p class = "wish-price"><%= Add.find(wishlist_items.add_id).name %> </p>
         <p class = "wish-price"><%= Add.find(wishlist_items.add_id).price %> </p>
+        <div><%= link_to  "/wishlist_delete/#{wishlist_items.id}", method: :delete, data: {confirm:
+        'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%></div>
       </div>
     </div>
   <% end %>

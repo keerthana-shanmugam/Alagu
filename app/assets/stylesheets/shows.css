@@ -6,14 +6,28 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    border: 2px solid black;
+    margin-left: 30px;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+.listing-box{
+    margin: 15px;
+    padding: 7px;
 }
 .wish-price {
     font-size: 20px;
     font-weight: bold;
+    margin-left: 5px;
+    padding: 2px;
 }
-
+.wishlist-price {
+    border: 2px solid black;
+    border-top: transparent;
+    
+}
 .wish-img {
     width: 300px;
     height: 200px;
+    border: 2px solid black;
 }

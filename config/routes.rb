@@ -19,12 +19,15 @@ Rails.application.routes.draw do
   post '/add_products', to: 'adds#create'
 
   get '/list_products', to: 'lists#new'
+  delete '/delete/:add.id', to: 'lists#delete'
 
   get '/wishlist/:product_id', to: 'lists#wishlist_items'
   get '/wishlists', to: 'shows#wishlist'
+  delete '/wishlist_delete/:id', to: 'shows#wishlist_delete'
 
-  get '/cart/:product_id', to: 'lists#add_cart_items'
+  get '/cart/:product_id', to: 'lists#cart_items'
   get '/cart', to: 'shows#cart'
+  delete '/cart_delete/:id', to: 'shows#cart_delete'
 
   match '/search', to: "lists#search", via: :get
 end

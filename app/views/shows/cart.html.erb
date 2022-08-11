@@ -54,7 +54,7 @@
 <div class="second-nav">
   <div class="container">
     <ul>
-      <li><a href="">Catogeries</a></li>
+      <li><a href="/list_products">Catogeries</a></li>
       <li><a href="">Brands</a></li>
       <li><a href="">Offers</a></li>
       <li><a href="">Rewards</a></li>
@@ -71,6 +71,8 @@
       <div class ="">
         <p class = "wish-price"><%= Add.find(cart_items.add_id).name %> </p>
         <p class = "wish-price"><%= Add.find(cart_items.add_id).price %> </p>
+        <div><%= link_to  "/cart_delete/#{cart_items.id}", method: :delete, data: {confirm:
+        'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%></div>
       </div>
     </div>
   <% end %>
