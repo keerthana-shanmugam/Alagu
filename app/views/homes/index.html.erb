@@ -5,18 +5,19 @@
     <span><i class="bx bx-search-alt-2"></i></span>
     <ul class="box-holder">
       <%# <li><a href="">Fashion</a></li> %>
+      
+      <%if session[:current_user_id] == nil %>
       <li>
         <%= link_to '/wishlists', class: "class_link" do %>
-          <i class="bx bxs-heart"><%= @wishlist_count %></i>
+          <i class="bx bxs-heart"></i>
 
         <% end %>
       </li>
       <li>
-        <%= link_to '/wishlists', class: "class_link" do %>
+        <%= link_to '/cart', class: "class_link" do %>
           <i class="bx bxs-shopping-bag"></i>
         <% end %>
       </li>
-      <%if session[:current_user_id] == nil %>
         <li class="dropdown">
           <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bx bxs-user-circle"></i>
@@ -27,6 +28,17 @@
           </ul>
         </li>
       <%else%>
+      <li>
+        <%= link_to '/wishlists', class: "class_link" do %>
+          <i class="bx bxs-heart"><span><%= @wishlist_count %></span></i>
+
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '/cart', class: "class_link" do %>
+          <i class="bx bxs-shopping-bag"><span><%= @cart_count %><span></i>
+        <% end %>
+      </li>
         <li class="dropdown">
           <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bx bxs-user-circle"></i>

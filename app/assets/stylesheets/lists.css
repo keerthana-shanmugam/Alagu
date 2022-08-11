@@ -6,6 +6,17 @@
     width: 250px;
     height: 200px;
 }
+.invisible_search {
+    position: absolute;
+    z-index: -1;
+}
+.search_filter_div {
+    position: absolute;
+    top: 0;
+    left: 23%;
+}
+
+
 
 .box-container {
     display: flex;
@@ -110,5 +121,3 @@
     border: 1px solid;
     border-bottom: none;
 }
-
-

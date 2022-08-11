@@ -2,16 +2,20 @@
 
 class ShowsController < ApplicationController
   skip_before_action :ensure_user_logged_in
+
   def wishlist
-    @items = Add.joins(:wishlist).all.map do |wishlist|
-      wishlist
-    end
-    @wishlist_count = Wishlist.all.length
+    @items = Wishlist.where(users_id: session[:current_user_id])
+   
+    @wishlist_count = Wishlist.where(users_id: session[:current_user_id]).count
+    p"==============================="
+    p @items
   end
 
   def cart
-    @items = Add.joins(:cart).all.map do |cart|
-      cart
-    end
+    @items = Cart.where(users_id: session[:current_user_id])
+    
+    @cart_count = Cart.where(users_id: session[:current_user_id] ).count
+    p"==============================="
+    p @items
   end
 end

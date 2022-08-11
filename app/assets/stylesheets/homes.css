@@ -209,3 +209,7 @@ a{
     background-color: blue;
   }
 }
+.apply_filter_button{
+  width: 100px;
+  margin-left: -100px;
+}

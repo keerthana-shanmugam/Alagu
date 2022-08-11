@@ -25,4 +25,6 @@ Rails.application.routes.draw do
 
   get '/cart/:product_id', to: 'lists#add_cart_items'
   get '/cart', to: 'shows#cart'
+
+  match '/search', to: "lists#search", via: :get
 end
