@@ -3,7 +3,7 @@
   <%if @current_user.present?%>
     <% if @current_user.role == "admin"%>
       <%=render "adminnew"%>
-    <%end%>
   <%else%>
    <%=render "usernew"%>
   <% end %>
+    <%end%>

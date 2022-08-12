@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_11_084928) do
+ActiveRecord::Schema.define(version: 2022_08_12_111020) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +58,20 @@ ActiveRecord::Schema.define(version: 2022_08_11_084928) do
     t.index ["users_id"], name: "index_carts_on_users_id"
   end
 
+  create_table "catogeries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sub_catogeries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "catogeries_id", null: false
+    t.index ["catogeries_id"], name: "index_sub_catogeries_on_catogeries_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -80,5 +94,6 @@ ActiveRecord::Schema.define(version: 2022_08_11_084928) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "carts", "adds"
+  add_foreign_key "sub_catogeries", "catogeries", column: "catogeries_id"
   add_foreign_key "wishlists", "adds"
 end

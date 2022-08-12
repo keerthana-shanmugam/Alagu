@@ -1,0 +1,3 @@
+<%= form_with url: "/add_catogeries", method: "post" do |form|%> 
+<%= form.text_field "product_catogeries[name]", placeholder:"catogeries name", class:"text_box" %> 
+<%= form.submit "submit", class: "add-btn"%> <%end%>

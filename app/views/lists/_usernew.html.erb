@@ -134,3 +134,53 @@
     </div>
   </div>
 
+
+<form action="">
+  <div class="dropdown-holder">
+    <ul class="names-list">
+        <li class="list-holder"> <div id="Makeup" onclick="dropdown('makeup-list')"> Makeup</div>
+            <ul id="makeup-list">
+                <li><li> Face </li><input type="checkbox"> Face Foundation <li><input type="checkbox">Face Concealer</li></li>
+                <li><li> Eyes </li><input type="checkbox"> Face Foundation <li><input type="checkbox">Face Concealer</li></li>
+                <li><li> Lips </li><input type="checkbox"> Face Foundation <li><input type="checkbox">Face Concealer</li></li>
+            </ul>
+        </li>
+        <li class="list-holder"> <div onclick="dropdown('makeup-list-2')"> Skin</div>
+            <ul id="makeup-list-2">
+                <li><input type="checkbox"> Moisturizers</li>
+                <li><input type="checkbox"> Cleansers</li>
+                <li><input type="checkbox"> Sunscreen</li>
+            </ul>
+        </li>
+        <li class="list-holder"><div onclick="dropdown('makeup-list-3')"> Hair</div>
+            <ul id="makeup-list-3">
+                <li><input type="checkbox"> Hair Shampoo</li>
+                <li><input type="checkbox"> Hair Conditioner</li>
+            </ul>
+        </li>
+        <li class="list-holder"> <div onclick="dropdown('makeup-list-4')"> Appliance</button>
+            <ul id="makeup-list-4">
+                <li><input type="checkbox"> Hair Dryers</li>
+                <li><input type="checkbox"> Straighteners</li>
+            </ul>
+        </li>
+    </ul>
+    <input type="submit" name="submit" id="">
+</div>
+</form>
+<style>
+    .active-drop{
+        display: none;
+    }
+
+</style>
+
+<script>
+    function dropdown(listId){
+        
+        var drop_List_name = document.getElementById(listId);
+    //    var drop_name = document.getElementById("Makeup");
+       drop_List_name.classList.toggle("active-drop")
+        
+    }
+</script>

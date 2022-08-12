@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   skip_before_action :ensure_user_logged_in
   def new
     if session[:current_user_id].present?
-    @current_user = User.find(session[:current_user_id].id)
+    @current_user = User.find(session[:current_user_id])
 
     @wishlist_count = Wishlist.where(users_id: session[:current_user_id] ).count
     @cart_count = Cart.where(users_id: session[:current_user_id] ).count
@@ -17,6 +17,9 @@ class ListsController < ApplicationController
     @presence = 1 if @search_params == []
     @@array = []
     @@presence_value = 0
+
+    p"=================================================="
+    p @current_user.present?
   end
 
   @@array = []
