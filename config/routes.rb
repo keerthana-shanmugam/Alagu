@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   post '/add_products', to: 'adds#create'
 
   get '/list_products', to: 'lists#new'
-  delete '/delete/:add.id', to: 'lists#delete'
+  delete '/product_list_delete/:id', to: 'lists#product_list_delete'
 
   get '/wishlist/:product_id', to: 'lists#wishlist_items'
   get '/wishlists', to: 'shows#wishlist'

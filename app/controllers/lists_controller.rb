@@ -71,7 +71,7 @@ class ListsController < ApplicationController
     end
   end
 
-  def delete
+  def product_list_delete
     @cancel = Add.where(id: params[:id])
     @cancel.destroy_all
     puts "=================================="

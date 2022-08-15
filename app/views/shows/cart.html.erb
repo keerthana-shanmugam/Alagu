@@ -1,7 +1,7 @@
 <div class="first-nav">
   <div class="container">
     <label class="logo"> azhagu</label>
-      <div class="search_filter_div">
+    <div class="search_filter_div">
       <form action="/search" method="get">
         <input
          type="hidden"
@@ -13,7 +13,6 @@
      </form>
     </div> 
     <ul class="box-holder">
-      <!-- <%# <li><a href="">Fashion</a></li> %> -->
       <%if session[:current_user_id] == nil %>
         <li>
           <%= link_to '/wislists', class: "class_link" do %>
@@ -73,15 +72,28 @@
 </div>
 <div class="wl-container">
   <% @items.each do |cart_items| %>
-    <div>
+    <div class = "listing-box">
       <div class = "cart-img">
         <%= image_tag Add.find(cart_items.add_id).image, class:"wish-img" %>
       </div>
-      <div class ="">
+      <div class ="wishlt-details-div">
         <p class = "wish-price"><%= Add.find(cart_items.add_id).name %> </p>
         <p class = "wish-price"><%= Add.find(cart_items.add_id).price %> </p>
-        <div><%= link_to  "/cart_delete/#{cart_items.id}", method: :delete, data: {confirm:
-        'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%></div>
+        <div class = "btn-redirect">
+          <div class = "xmark-div"><%= link_to  "/cart_delete/#{cart_items.id}", method: :delete, data: {confirm:
+                'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%>
+          </div>
+          <p class="quantity">Quantity : 
+            <select name="quantity" id="quantity">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </p>
+        </div>
       </div>
     </div>
   <% end %>

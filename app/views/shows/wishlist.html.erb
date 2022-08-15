@@ -15,7 +15,6 @@
      </form>
     </div> 
     <ul class="box-holder">
-      <!-- <%# <li><a href="">Fashion</a></li> %> -->
       <%if session[:current_user_id] == nil %>
         <li>
           <%= link_to '/wislists', class: "class_link" do %>
@@ -79,11 +78,19 @@
       <div class = "wishlt-imisg">
         <%= image_tag Add.find(wishlist_items.add_id).image, class:"wish-img" %>
       </div>
-      <div class = "wishlist-price">
-        <p class = "wish-price"><%= Add.find(wishlist_items.add_id).name %> </p>
-        <p class = "wish-price"><%= Add.find(wishlist_items.add_id).price %> </p>
-        <div><%= link_to  "/wishlist_delete/#{wishlist_items.id}", method: :delete, data: {confirm:
-        'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%></div>
+      <div class = "wishlt-details-div">
+        <div>
+          <p class = "wish-price"><%= Add.find(wishlist_items.add_id).name %> </p>
+        </div>
+        <div>
+          <p class = "wish-price"><%= Add.find(wishlist_items.add_id).price %> </p>
+        </div>
+        <div class = "btn-redirect">
+          <div class = "xmark-div">
+            <%= link_to  "/wishlist_delete/#{wishlist_items.id}", method: :delete, data: {confirm: 'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%>
+          </div>
+          <div class="btn-cart">Add To Cart</div>
+        </div>
       </div>
     </div>
   <% end %>
