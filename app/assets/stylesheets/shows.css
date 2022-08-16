@@ -14,6 +14,10 @@
 .listing-box{
     margin: 15px;
     padding: 7px;
+    float: left;
+    margin-left: 0;
+    margin-bottom: 0;
+    background-color: aqua;
 }
 .wish-price {
     font-size: 20px;
@@ -64,4 +68,19 @@
     margin: 5px;
     padding: 5px;
 
+}
+
+.cart-total {
+    position: fixed;
+    top: 20%;
+    right: 2%;
+    margin: 10px;
+    padding: 10px;
+    color: var(--black);
+    width: 300px;
+    height: 500px;
+    border: 2px solid var(--black);
+    margin-right: 0;
+    margin-bottom: 0;
+    background-color: blue;
 }

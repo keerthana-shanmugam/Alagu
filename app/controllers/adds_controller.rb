@@ -23,7 +23,7 @@ class AddsController < ApplicationController
 
   def add_sub_catogeries
     product_sub_catogeries = SubCatogery.new(sub_catogeries_params)
-    product_sub_catogeries.catogeries_id = 1
+    product_sub_catogeries.catogeries_id = 4
     if product_sub_catogeries.save
       render plain:true
     else

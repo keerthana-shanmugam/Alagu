@@ -38,4 +38,6 @@ Rails.application.routes.draw do
 
   get '/add_sub_catogeries', to: 'adds#new'
   post '/add_sub_catogeries', to: 'adds#add_sub_catogeries'
+  
+  get '/filter_catogeries', to: 'lists#filter'
 end

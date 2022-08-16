@@ -6,9 +6,9 @@ class ListsController < ApplicationController
   def new
     if session[:current_user_id].present?
     @current_user = User.find(session[:current_user_id])
-
     @wishlist_count = Wishlist.where(users_id: session[:current_user_id] ).count
     @cart_count = Cart.where(users_id: session[:current_user_id] ).count
+    @product = Add.all
     end
     @search_details = Add.all
     @presence = 0
@@ -17,9 +17,11 @@ class ListsController < ApplicationController
     @presence = 1 if @search_params == []
     @@array = []
     @@presence_value = 0
+  end
 
-    p"=================================================="
-    p @current_user.present?
+  def filter
+
+    render 'new'
   end
 
   @@array = []
@@ -46,28 +48,34 @@ class ListsController < ApplicationController
   end
 
   def wishlist_items
-    current_user = session[:current_user_id]
+    current_user
     if current_user.nil?
       flash[:alert] = 'Please Login!'
       redirect_to 'lists/new'
     else
       product_id = params[:product_id]
+      puts "[[[[[[[[[[[[[[[[["
+      puts product_id
       # flash[:alert] = "Added to Wishlist!" 
-      @wishlist_products = Wishlist.create add_id: product_id, users_id: session[:current_user_id]
-      redirect_to '/lists/new'
+      @wishlist_products = Wishlist.new(adds_id: product_id, users_id: current_user.id)
+      if @wishlist_products.save
+       redirect_to "/wishlists"
+      end
     end
   end
 
   def cart_items
-    current_user = session[:current_user_id]
+    current_user 
     if current_user.nil?
       flash[:alert] = 'Please Login!'
       redirect_to 'lists/new'
     else
       product_id = params[:product_id]
       # flash[:alert] = "Added to Cart!"
-      @cart_products = Cart.create add_id: product_id, users_id: session[:current_user_id]
-      redirect_to '/lists/new'
+      @cart_products = Cart.new(adds_id: product_id, users_id: current_user.id)
+      if @cart_products.save
+       redirect_to '/lists/new'
+      end
     end
   end
 

@@ -76,14 +76,14 @@
   <% @items.each do |wishlist_items| %>
     <div class = "listing-box">
       <div class = "wishlt-imisg">
-        <%= image_tag Add.find(wishlist_items.add_id).image, class:"wish-img" %>
+        <%= image_tag Add.find(wishlist_items.adds_id).image, class:"wish-img" %>
       </div>
       <div class = "wishlt-details-div">
         <div>
-          <p class = "wish-price"><%= Add.find(wishlist_items.add_id).name %> </p>
+          <p class = "wish-price"><%= Add.find(wishlist_items.adds_id).name %> </p>
         </div>
         <div>
-          <p class = "wish-price"><%= Add.find(wishlist_items.add_id).price %> </p>
+          <p class = "wish-price"><%= Add.find(wishlist_items.adds_id).price %> </p>
         </div>
         <div class = "btn-redirect">
           <div class = "xmark-div">

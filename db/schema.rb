@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_12_111020) do
+ActiveRecord::Schema.define(version: 2022_08_16_050755) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 2022_08_12_111020) do
   create_table "carts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "add_id", null: false
     t.bigint "users_id"
-    t.index ["add_id"], name: "index_carts_on_add_id"
+    t.bigint "adds_id", null: false
+    t.index ["adds_id"], name: "index_carts_on_adds_id"
     t.index ["users_id"], name: "index_carts_on_users_id"
   end
 
@@ -85,15 +85,13 @@ ActiveRecord::Schema.define(version: 2022_08_12_111020) do
   create_table "wishlists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "add_id", null: false
     t.bigint "users_id"
-    t.index ["add_id"], name: "index_wishlists_on_add_id"
+    t.bigint "adds_id", null: false
+    t.index ["adds_id"], name: "index_wishlists_on_adds_id"
     t.index ["users_id"], name: "index_wishlists_on_users_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "carts", "adds"
   add_foreign_key "sub_catogeries", "catogeries", column: "catogeries_id"
-  add_foreign_key "wishlists", "adds"
 end
