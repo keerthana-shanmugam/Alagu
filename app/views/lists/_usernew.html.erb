@@ -72,7 +72,8 @@
       </ul>
       <div class="product_list_div">
         <% if @presence_value==0 %>
-         <% @product.each do |add|%>
+        <% if @product %>
+         <% @product.each do |add| %>
             <div class="box-container">
               <div class="image_content">
                 <%= image_tag add.image, class:"list_img"%>
@@ -131,6 +132,7 @@
           <% end %> <% elsif @search_params==[] and @presence_value==1 %>
           <div class="no_result_error">No Results Found</div>
         <%end%>
+        <% end %>
       </div>
     </div>
   </div>
