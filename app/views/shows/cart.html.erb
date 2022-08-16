@@ -97,8 +97,16 @@
       </div>
     </div>
   <% end %>
+  
   <div class = "cart-total">
-  <p>Total - <span>&#8377;</span><span>0</span></p>
-    <button>Pay Now</button>
+  <%# <p> %>
+  
+  <% first_item_price =0 %>
+  <% @cart_items.each do |items| %>
+  <%# <%= items['price'] %> 
+  <% first_item_price = first_item_price + items.price %>
+  <%end %>
+  <p>Total - <span>&#8377;</span><span><%= first_item_price %> </span></p> 
+    <button>Pay Now3</button>
   </div>
 </div>

@@ -70,7 +70,7 @@
       </div>
     </ul>
     <div class="product_list_div">
-      <% if @presence_value==0 %> <% @product.each do |add|%>
+      <% if @presence_value==0 %> <% Add.all.each do |add|%>
           <div class="box-container">
             <div class="image_content">
               <%= image_tag add.image, class:"list_img"%>
@@ -100,7 +100,7 @@
             </div>
           </div>
         <% end %> <% elsif @presence_value==1 and @search_params !=[]%>
-        <% @product.each do |add|%> <% if @search_params.include? add.id %>
+        <% Add.all.each do |add|%> <% if @search_params.include? add.id %>
             <div class="box-container">
               <div class="image_content">
                 <%= image_tag add.image, class:"list_img"%>
@@ -136,55 +136,4 @@
     </div>
   </div>
 </div>
-<form action="/filter_catogeries">
-  <div class="dropdown-holder">
-    <ul class="names-list">
-      <li class="list-holder">
-        <div id="Makeup" onclick="dropdown('makeup-list')"> Makeup</div>
-        <ul id="makeup-list">
-          <li><input type="checkbox" name="bg_radio" value="Foundation">Foundation</li>
-          <li><input type="radio" name="bg_radio">Compact</li>
-          <li><input type="radio" name="bg_radio">Lipstick</li>
-          <li><input type="radio" name="bg_radio">Kajal</li>
-          <li><input type="radio" name="bg_radio">Eyeliner</li>
-          <li><input type="radio" name="bg_radio">Nail polish</li>
-        </ul>
-      </li>
-      <li class="list-holder">
-        <div onclick="dropdown('makeup-list-2')"> Skin</div>
-        <ul id="makeup-list-2">
-          <li><input type="radio" name="bg_radio"> Moisturizers</li>
-          <li><input type="radio" name="bg_radio"> Cleansers</li>
-          <li><input type="radio" name="bg_radio"> Sunscreen</li>
-        </ul>
-      </li>
-      <li class="list-holder">
-        <div onclick="dropdown('makeup-list-3')"> Hair</div>
-        <ul id="makeup-list-3">
-          <li><input type="radio" name="bg_radio"> Hair Shampoo</li>
-          <li><input type="radio" name="bg_radio"> Hair Conditioner</li>
-        </ul>
-      </li>
-      <li class="list-holder">
-        <div onclick="dropdown('makeup-list-4')"> Appliance</button>
-        <ul id="makeup-list-4">
-          <li><input type="radio" name="bg_radio"> Hair Dryers</li>
-          <li><input type="radio" name="bg_radio"> Straighteners</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  <input type="submit">
-</form>
-<style>
-  .active-drop{
-    display: none;
-  }
-</style>
-<script>
-  function dropdown(listId){
-   var drop_List_name = document.getElementById(listId);
-   //    var drop_name = document.getElementById("Makeup");
-   drop_List_name.classList.toggle("active-drop")
-  }
-</script>
+

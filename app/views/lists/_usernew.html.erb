@@ -71,9 +71,34 @@
         </div>
       </ul>
       <div class="product_list_div">
-        <% if @presence_value==0 %>
-        <% if @product %>
-         <% @product.each do |add| %>
+      <% if @presence_value==0 %> <% Add.all.each do |add|%>
+          <div class="box-container">
+            <div class="image_content">
+              <%= image_tag add.image, class:"list_img"%>
+            </div>
+            <div class="list_content_div">
+              <div class="ul-list">
+                <ul>
+                  <li><%= add.name %></li>
+                  <div class="price_div">
+                    <span>&#8377;</span>
+                    <span>
+                      <li><%= add.price %></li>
+                    </span>
+                  </div>
+                </ul>
+              </div>
+              <div class="icon_content_div">
+                <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
+              </div>
+            </div>
+            <div class="sub-btn">
+              <button class="bt btn1">Buy now</button>
+              <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
+            </div>
+          </div>
+        <% end %> <% elsif @presence_value==1 and @search_params !=[]%>
+        <% Add.all.each do |add|%> <% if @search_params.include? add.id %>
             <div class="box-container">
               <div class="image_content">
                 <%= image_tag add.image, class:"list_img"%>
@@ -81,7 +106,6 @@
               <div class="list_content_div">
                 <div class="ul-list">
                   <ul>
-                    <!-- <a href="/cart/<%= add['id'] %>">Add to cart</a> -->
                     <li><%= add.name %></li>
                     <div class="price_div">
                       <span>&#8377;</span>
@@ -92,105 +116,19 @@
                   </ul>
                 </div>
                 <div class="icon_content_div">
-                  <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
+                   <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
                 </div>
               </div>
               <div class="sub-btn">
-                <button class="bt btn1">Buy now</button>
+                <button class="bt btn1">Book now</button>
                 <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
               </div>
             </div>
-          <% end %> <% elsif @presence_value==1 and @search_params !=[]%>
-          <% Add.all.each do |add|%> <% if @search_params.include? add.id %>
-              <div class="box-container">
-                <div class="image_content">
-                  <%= image_tag add.image, class:"list_img"%>
-                </div>
-                <div class="list_content_div">
-                  <div class="ul-list">
-                    <ul>
-                      <!-- <a href="/cart/<%= add['id'] %>">Add to cart</a> -->
-                      <li><%= add.name %></li>
-                      <div class="price_div">
-                        <span>&#8377;</span>
-                        <span>
-                          <li><%= add.price %></li>
-                        </span>
-                      </div>
-                    </ul>
-                  </div>
-                  <div class="icon_content_div">
-                    <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
-                  </div>
-                </div>
-                <div class="sub-btn">
-                  <button class="bt btn1">Book now</button>
-                  <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
-                </div>
-              </div>
-            <% end %>
-          <% end %> <% elsif @search_params==[] and @presence_value==1 %>
-          <div class="no_result_error">No Results Found</div>
-        <%end%>
-        <% end %>
-      </div>
+          <% end %>
+        <% end %> <% elsif @search_params==[] and @presence_value==1 %>
+        <div class="no_result_error">No Results Found</div>
+      <%end%>
     </div>
   </div>
+</div>
 
-
-<form action="/filter_catogeries">
-  <div class="dropdown-holder">
-    <ul class="names-list">
-      <li class="list-holder">
-        <div id="Makeup" onclick="dropdown('makeup-list')"> Makeup</div>
-        <ul id="makeup-list">
-          <li><input type="checkbox" name="bg_radio" value="Foundation">Foundation</li>
-          <li><input type="radio" name="bg_radio">Compact</li>
-          <li><input type="radio" name="bg_radio">Lipstick</li>
-          <li><input type="radio" name="bg_radio">Kajal</li>
-          <li><input type="radio" name="bg_radio">Eyeliner</li>
-          <li><input type="radio" name="bg_radio">Nail polish</li>
-        </ul>
-      </li>
-      <li class="list-holder">
-        <div onclick="dropdown('makeup-list-2')"> Skin</div>
-        <ul id="makeup-list-2">
-          <li><input type="radio" name="bg_radio"> Moisturizers</li>
-          <li><input type="radio" name="bg_radio"> Cleansers</li>
-          <li><input type="radio" name="bg_radio"> Sunscreen</li>
-        </ul>
-      </li>
-      <li class="list-holder">
-        <div onclick="dropdown('makeup-list-3')"> Hair</div>
-        <ul id="makeup-list-3">
-          <li><input type="radio" name="bg_radio"> Hair Shampoo</li>
-          <li><input type="radio" name="bg_radio"> Hair Conditioner</li>
-        </ul>
-      </li>
-      <li class="list-holder">
-        <div onclick="dropdown('makeup-list-4')"> Appliance</button>
-        <ul id="makeup-list-4">
-          <li><input type="radio" name="bg_radio"> Hair Dryers</li>
-          <li><input type="radio" name="bg_radio"> Straighteners</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  <input type="submit">
-</form>
-<style>
-    .active-drop{
-        display: none;
-    }
-
-</style>
-
-<script>
-    function dropdown(listId){
-        
-        var drop_List_name = document.getElementById(listId);
-    //    var drop_name = document.getElementById("Makeup");
-       drop_List_name.classList.toggle("active-drop")
-        
-    }
-</script>

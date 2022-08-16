@@ -9,6 +9,8 @@ class ShowsController < ApplicationController
     @wishlist_count = Wishlist.where(users_id: session[:current_user_id]).count
     p"==============================="
     p @items
+
+    
   end
 
   def cart
@@ -17,6 +19,10 @@ class ShowsController < ApplicationController
     @cart_count = Cart.where(users_id: session[:current_user_id] ).count
     p"==============================="
     p @items
+
+    @cart_items = Add.joins("JOIN carts on carts.adds_id = adds.id").map do |cart|
+      cart
+    end
   end
 
   def wishlist_delete
