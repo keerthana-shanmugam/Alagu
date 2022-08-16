@@ -1,12 +1,104 @@
-welcome to cart !
-
-
+<div class="first-nav">
+  <div class="container">
+    <label class="logo"> azhagu</label>
+    <div class="search_filter_div">
+      <form action="/search" method="get">
+        <input
+         type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>"
+         class="invisible_search"
+       />
+       <span> <input type="search" placeholder="Serach with product name" name="search" class=" "><i class="bx bx-search-alt-2"></i></span>
+     </form>
+    </div> 
+    <ul class="box-holder">
+      <%if session[:current_user_id] == nil %>
+        <li>
+          <%= link_to '/wislists', class: "class_link" do %>
+            <i class="bx bxs-heart"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '/cart', class: "class_link" do %>
+            <i class="bx bxs-shopping-bag"></i>
+          <% end %>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bx bxs-user-circle"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/signin">Login</a></li>
+            <li><a class="dropdown-item" href="/sign_up">Register</a></li>
+          </ul>
+        </li>
+      <%else%>
+        <li>
+          <%= link_to '/wishlists', class: "class_link" do %>
+            <i class="bx bxs-heart"><span><%= @wishlist_count %></span></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '/cart', class: "class_link" do %>
+            <i class="bx bxs-shopping-bag"><span><%= @cart_count %></span></i>
+          <% end %>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bx bxs-user-circle"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/signout">Profile</a></li>
+            <li><a class="dropdown-item" href="/signout"> <i class='bx bx-log-out'></i>Logout</a></li>
+          </ul>
+          <% logged_user = User.find(session[:current_user_id]) %>
+          <label class="user-name"><%= logged_user["name"] %></label>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+</div>
+<div class="second-nav">
+  <div class="container">
+    <ul>
+      <li><a href="/list_products">Catogeries</a></li>
+      <li><a href="">Brands</a></li>
+      <li><a href="">Offers</a></li>
+      <li><a href="">Rewards</a></li>
+      <li><a href="">Beauty Advice</a></li>
+    </ul>
+  </div>
+</div>
 <div class="wl-container">
-  <% @items.each do |wishlist_items| %>
-
-  <h1> <%= wishlist_items.price%> </h1>    
-    <%= image_tag wishlist_items.image%> 
-     <% end %>
-     
-    
- </div>
+  <% @items.each do |cart_items| %>
+    <div class = "listing-box">
+      <div class = "cart-img">
+        <%= image_tag Add.find(cart_items.adds_id).image, class:"wish-img" %>
+      </div>
+      <div class ="wishlt-details-div">
+        <p class = "wish-price"><%= Add.find(cart_items.adds_id).name %> </p>
+        <p class = "wish-price"><%= Add.find(cart_items.adds_id).price %> </p>
+        <div class = "btn-redirect">
+          <div class = "xmark-div"><%= link_to  "/cart_delete/#{cart_items.id}", method: :delete, data: {confirm:
+                'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%>
+          </div>
+          <p class="quantity">Quantity : 
+            <select name="quantity" id="quantity">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class = "cart-total">
+  <p>Total - <span>&#8377;</span><span>0</span></p>
+    <button>Pay Now</button>
+  </div>
+</div>

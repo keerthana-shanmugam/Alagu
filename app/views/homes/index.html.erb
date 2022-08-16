@@ -1,22 +1,32 @@
 <div class="first-nav">
   <div class="container">
     <label class="logo"> azhagu</label>
-    <input type="search" name="search" placeholder="search" />
-    <span><i class="bx bx-search-alt-2"></i></span>
+      <div class="search_filter_div">
+      <form action="/search" method="get">
+        <input
+         type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>"
+         class="invisible_search"
+       />
+       <span> <input type="search" placeholder="Serach with product name" name="search" class=" "><i class="bx bx-search-alt-2"></i></span>
+     </form>
+    </div> 
     <ul class="box-holder">
       <%# <li><a href="">Fashion</a></li> %>
+      
+      <%if session[:current_user_id] == nil %>
       <li>
         <%= link_to '/wishlists', class: "class_link" do %>
-          <i class="bx bxs-heart"><%= @wishlist_count %></i>
+          <i class="bx bxs-heart"></i>
 
         <% end %>
       </li>
       <li>
-        <%= link_to '/wishlists', class: "class_link" do %>
+        <%= link_to '/cart', class: "class_link" do %>
           <i class="bx bxs-shopping-bag"></i>
         <% end %>
       </li>
-      <%if session[:current_user_id] == nil %>
         <li class="dropdown">
           <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bx bxs-user-circle"></i>
@@ -27,6 +37,17 @@
           </ul>
         </li>
       <%else%>
+      <li>
+        <%= link_to '/wishlists', class: "class_link" do %>
+          <i class="bx bxs-heart"><span><%= @wishlist_count %></span></i>
+
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '/cart', class: "class_link" do %>
+          <i class="bx bxs-shopping-bag"><span><%= @cart_count %><span></i>
+        <% end %>
+      </li>
         <li class="dropdown">
           <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bx bxs-user-circle"></i>
@@ -45,7 +66,7 @@
 <div class="second-nav">
   <div class="container">
     <ul>
-      <li><a href="">Catogeries</a></li>
+      <li><a href="/list_products">Catogeries</a></li>
       <li><a href="">Brands</a></li>
       <li><a href="">Offers</a></li>
       <li><a href="">Rewards</a></li>
