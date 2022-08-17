@@ -13,7 +13,6 @@
      </form>
     </div> 
     <ul class="box-holder">
-      <%# <li><a href="">Fashion</a></li> %>
       <li>
           <%= link_to '/wishlists', class: "class_link" do %>
             <i class="bx bxs-heart"><span><%= @wishlist_count %></span></i>
@@ -33,8 +32,8 @@
             <li><a class="dropdown-item" href="/signout"> <i class='bx bx-log-out'></i>Logout</a></li>
           </ul>
           <%if session[:current_user_id].present?%>
-          <% logged_user = User.find(session[:current_user_id]) %>
-          <label class="user-name"><%= logged_user["name"] %></label>
+            <% logged_user = User.find(session[:current_user_id]) %>
+            <label class="user-name"><%= logged_user["name"] %></label>
           <%end%>
         </li>
       </ul>
@@ -56,49 +55,30 @@
       <ul class="list_content">
         <div>
           <li>
-            Makeup
-            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
+            <a class="dropdown-item">
+              <form action="/filter" method="get"><button type="submit" value="makeup" name="q" class="border-0 bg-white text-dark w-100">Makeup</button></form>
+            </a>
+            <%# <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span> %>
           </li>
-          <li>Face 
-            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
+          <li>
+            <a class="dropdown-item">
+              <form action="/filter" method="get"><button type="submit" value="face" name="q" class="border-0 bg-white text-dark w-100">Face</button></form>
+            </a>
           </li>
-          <li>Skin 
-            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
+          <li>
+            <a class="dropdown-item">
+              <form action="/filter" method="get"><button type="submit" value="skin" name="q" class="border-0 bg-white text-dark w-100">Skin</button></form>
+            </a>
           </li>
-          <li>Hair 
-            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
+          <li>
+            <a class="dropdown-item">
+              <form action="/filter" method="get"><button type="submit" value="hair" name="q" class="border-0 bg-white text-dark w-100">Hair</button></form>
+            </a>
           </li>
         </div>
       </ul>
       <div class="product_list_div">
-      <% if @presence_value==0 %> <% Add.all.each do |add|%>
-          <div class="box-container">
-            <div class="image_content">
-              <%= image_tag add.image, class:"list_img"%>
-            </div>
-            <div class="list_content_div">
-              <div class="ul-list">
-                <ul>
-                  <li><%= add.name %></li>
-                  <div class="price_div">
-                    <span>&#8377;</span>
-                    <span>
-                      <li><%= add.price %></li>
-                    </span>
-                  </div>
-                </ul>
-              </div>
-              <div class="icon_content_div">
-                <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
-              </div>
-            </div>
-            <div class="sub-btn">
-              <button class="bt btn1">Buy now</button>
-              <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
-            </div>
-          </div>
-        <% end %> <% elsif @presence_value==1 and @search_params !=[]%>
-        <% Add.all.each do |add|%> <% if @search_params.include? add.id %>
+        <% if @presence_value==0 %> <% Add.all.each do |add|%>
             <div class="box-container">
               <div class="image_content">
                 <%= image_tag add.image, class:"list_img"%>
@@ -116,19 +96,45 @@
                   </ul>
                 </div>
                 <div class="icon_content_div">
-                   <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
+                  <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
                 </div>
               </div>
               <div class="sub-btn">
-                <button class="bt btn1">Book now</button>
+                <button class="bt btn1">Buy now</button>
                 <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
               </div>
             </div>
-          <% end %>
-        <% end %> <% elsif @search_params==[] and @presence_value==1 %>
-        <div class="no_result_error">No Results Found</div>
-      <%end%>
+          <% end %> <% elsif @presence_value==1 and @search_params !=[]%>
+          <% Add.all.each do |add|%> <% if @search_params.include? add.id %>
+              <div class="box-container">
+                <div class="image_content">
+                  <%= image_tag add.image, class:"list_img"%>
+                </div>
+                <div class="list_content_div">
+                  <div class="ul-list">
+                    <ul>
+                      <li><%= add.name %></li>
+                      <div class="price_div">
+                        <span>&#8377;</span>
+                        <span>
+                          <li><%= add.price %></li>
+                        </span>
+                      </div>
+                    </ul>
+                  </div>
+                  <div class="icon_content_div">
+                    <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
+                  </div>
+                </div>
+                <div class="sub-btn">
+                  <button class="bt btn1">Book now</button>
+                  <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
+                </div>
+              </div>
+            <% end %>
+          <% end %> <% elsif @search_params==[] and @presence_value==1 %>
+          <div class="no_result_error">No Results Found</div>
+        <%end%>
+      </div>
     </div>
   </div>
-</div>
-

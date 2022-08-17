@@ -1,35 +1,131 @@
-
-
-<% @beauty_product.each do |add| %>
-
-          <div class="box-container">
-            <div class="image_content">
-              <%= image_tag add.image, class:"list_img"%>
-            
-            </div>
-            <div class="list_content_div">
-              <div class="ul-list">
-                <ul>
-                  <li><%= add.name %></li>
-                  <div class="price_div">
-                    <span>&#8377;</span>
-                    <span>
-                      <li><%= add.price %></li>
-                    </span>
-                  </div>
-                </ul>
-              </div>
-              <div class="icon_content_div">
-                <div class = "icon-delete">
-                  <%= link_to  "/product_list_delete/#{add.id}", method: :delete, data: {confirm:'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%>
-                </div>
-                <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
-              </div>
-            </div>
-            <div class="sub-btn">
-              <button class="bt btn1">Buy now</button>
-              <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
-            </div>
+<div class="first-nav">
+  <div class="container">
+    <label class="logo"> azhagu</label>
+    <div class="search_filter_div">
+      <form action="/search" method="get">
+        <input
+         type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>"
+         class="invisible_search"
+       />
+       <span> <input type="search" placeholder="Search with product name" name="search" class=" "><i class="bx bx-search-alt-2"></i></span>
+     </form>
+    </div> 
+    <ul class="box-holder">
+      
+      <%if session[:current_user_id] == nil %>
+      <li>
+          <%= link_to '/wishlists', class: "class_link" do %>
+            <i class="bx bxs-heart"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '/cart', class: "class_link" do %>
+            <i class="bx bxs-shopping-bag"></i>
+          <% end %>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bx bxs-user-circle"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/signin">Login</a></li>
+            <li><a class="dropdown-item" href="/sign_up">Register</a></li>
+          </ul>
+        </li>
+      <%else%>
+        <li>
+          <%= link_to '/wishlists', class: "class_link" do %>
+            <i class="bx bxs-heart"><span><%= @wishlist_count %></span></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '/cart', class: "class_link" do %>
+            <i class="bx bxs-shopping-bag"><span><%= @cart_count %><span></i>
+              <% end %>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bxs-user-circle"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/signout">Profile</a></li>
+                <li><a class="dropdown-item" href="/signout"> <i class='bx bx-log-out'></i>Logout</a></li>
+              </ul>
+              <% logged_user = User.find(session[:current_user_id]) %>
+              <label class="user-name"><%= logged_user["name"] %></label>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+    <div class="second-nav">
+      <div class="container">
+        <ul>
+          <li><a href="/list_products">Categories</a></li>
+          <li><a href="">Brands</a></li>
+          <li><a href="">Offers</a></li>
+          <li><a href="">Rewards</a></li>
+          <li><a href="">Beauty Advice</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="catogeries_main_div">
+      <div class="catogeries_sub_div">
+        <ul class="list_content">
+          <div>
+            <li>
+              <a class="dropdown-item">
+                <form action="/filter" method="get"><button type="submit" value="makeup" name="q" class="border-0 bg-white text-dark w-100">Makeup</button></form>
+              </a>
+              <%# <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span> %>
+            </li>
+            <li>
+              <a class="dropdown-item">
+                <form action="/filter" method="get"><button type="submit" value="face" name="q" class="border-0 bg-white text-dark w-100">Face</button></form>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item">
+                <form action="/filter" method="get"><button type="submit" value="skin" name="q" class="border-0 bg-white text-dark w-100">Skin</button></form>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item">
+                <form action="/filter" method="get"><button type="submit" value="hair" name="q" class="border-0 bg-white text-dark w-100">Hair</button></form>
+              </a>
+            </li>
           </div>
-        <% end %>
-
+        </ul>
+        <div class="product_list_div">
+          <% @beauty_product.each do |add| %>
+            <div class="box-container">
+              <div class="image_content">
+                <%= image_tag add.image, class:"list_img"%>
+              </div>
+              <div class="list_content_div">
+                <div class="ul-list">
+                  <ul>
+                    <li><%= add.name %></li>
+                    <div class="price_div">
+                      <span>&#8377;</span>
+                      <span>
+                        <li><%= add.price %></li>
+                      </span>
+                    </div>
+                  </ul>
+                </div>
+                <div class="icon_content_div">
+                  <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
+                </div>
+              </div>
+              <div class="sub-btn">
+                <button class="bt btn1">Buy now</button>
+                <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>

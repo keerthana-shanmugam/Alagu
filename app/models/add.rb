@@ -9,5 +9,4 @@ class Add < ApplicationRecord
   validates :image, presence: true
   validates :price, presence: true, length: { minimum: 1, maximum: 5 }
   validates :catogeries, presence: true, length: { minimum: 4, maximum: 7 }
-  
 end

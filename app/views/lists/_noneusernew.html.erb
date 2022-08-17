@@ -14,58 +14,66 @@
     </div> 
     <ul class="box-holder">
       <li>
-          <%= link_to '/signin', class: "class_link" do %>
-            <i class="bx bxs-heart"></i>
-          <% end %>
+        <%= link_to '/signin', class: "class_link" do %>
+          <i class="bx bxs-heart"></i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to '/signin', class: "class_link" do %>
+        <i class="bx bxs-shopping-bag"></i>
+      <% end %>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bx bxs-user-circle"></i>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item" href="/signin">Login</a></li>
+        <li><a class="dropdown-item" href="/sign_up">Register</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</div>
+<div class="second-nav">
+  <div class="container">
+    <ul>
+      <li><a href="/list_products">Categories</a></li>
+      <li><a href="">Brands</a></li>
+      <li><a href="">Offers</a></li>
+      <li><a href="">Rewards</a></li>
+      <li><a href="">Beauty Advice</a></li>
+    </ul>
+  </div>
+</div>
+<div class="catogeries_main_div">
+  <div class="catogeries_sub_div">
+    <ul class="list_content">
+      <div>
+        <li>
+          <a class="dropdown-item"> 
+            <form action="/filter" method="get"><button type="submit" value="makeup" name="q" class="border-0 bg-white text-dark w-100">Makeup</button></form>
+          </a>
+          <%# <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span> %>
         </li>
         <li>
-          <%= link_to '/signin', class: "class_link" do %>
-            <i class="bx bxs-shopping-bag"></i>
-          <% end %>
-        </li>
-        <li class="dropdown">
-          <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bx bxs-user-circle"></i>
+          <a class="dropdown-item"> 
+            <form action="/filter" method="get"><button type="submit" value="face" name="q" class="border-0 bg-white text-dark w-100">Face</button></form>
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="/signin">Login</a></li>
-            <li><a class="dropdown-item" href="/sign_up">Register</a></li>
-          </ul>
         </li>
-      </ul>
-    </div>
-  </div>
-  <div class="second-nav">
-    <div class="container">
-      <ul>
-        <li><a href="/list_products">Categories</a></li>
-        <li><a href="">Brands</a></li>
-        <li><a href="">Offers</a></li>
-        <li><a href="">Rewards</a></li>
-        <li><a href="">Beauty Advice</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="catogeries_main_div">
-    <div class="catogeries_sub_div">
-      <ul class="list_content">
-        <div>
-          <li>
-            Makeup
-            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
-          </li>
-          <li>Face 
-            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
-          </li>
-          <li>Skin 
-            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
-          </li>
-          <li>Hair 
-            <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span>
-          </li>
-        </div>
-      </ul>
-      <div class="product_list_div">
+        <li>
+          <a class="dropdown-item"> 
+            <form action="/filter" method="get"><button type="submit" value="skin" name="q" class="border-0 bg-white text-dark w-100">Skin</button></form>
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item"> 
+            <form action="/filter" method="get"><button type="submit" value="hair" name="q" class="border-0 bg-white text-dark w-100">Hair</button></form>
+          </a>
+        </li>
+      </div>
+    </ul>
+    <div class="product_list_div">
       <% if @presence_value==0 %> <% Add.all.each do |add|%>
           <div class="box-container">
             <div class="image_content">
@@ -111,7 +119,7 @@
                   </ul>
                 </div>
                 <div class="icon_content_div">
-                   <a href="/signin"><i class='bx bx-heart' ></i></a>
+                  <a href="/signin"><i class='bx bx-heart' ></i></a>
                 </div>
               </div>
               <div class="sub-btn">
@@ -126,4 +134,3 @@
     </div>
   </div>
 </div>
-
