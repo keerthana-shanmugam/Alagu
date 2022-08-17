@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AddForeignkeytowishlists < ActiveRecord::Migration[6.1]
   def change
-    add_reference :wishlists ,:users , index: true 
+    add_reference :wishlists, :users, index: true
   end
 end

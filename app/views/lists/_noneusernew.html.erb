@@ -13,15 +13,14 @@
      </form>
     </div> 
     <ul class="box-holder">
-      <%# <li><a href="">Fashion</a></li> %>
       <li>
-          <%= link_to '/wishlists', class: "class_link" do %>
-            <i class="bx bxs-heart"><span><%= @wishlist_count %></span></i>
+          <%= link_to '/signin', class: "class_link" do %>
+            <i class="bx bxs-heart"></i>
           <% end %>
         </li>
         <li>
-          <%= link_to '/cart', class: "class_link" do %>
-            <i class="bx bxs-shopping-bag"><span><%= @cart_count %></span></i>
+          <%= link_to '/signin', class: "class_link" do %>
+            <i class="bx bxs-shopping-bag"></i>
           <% end %>
         </li>
         <li class="dropdown">
@@ -29,13 +28,9 @@
             <i class="bx bxs-user-circle"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="/signout">Profile</a></li>
-            <li><a class="dropdown-item" href="/signout"> <i class='bx bx-log-out'></i>Logout</a></li>
+            <li><a class="dropdown-item" href="/signin">Login</a></li>
+            <li><a class="dropdown-item" href="/sign_up">Register</a></li>
           </ul>
-          <%if session[:current_user_id].present?%>
-          <% logged_user = User.find(session[:current_user_id]) %>
-          <label class="user-name"><%= logged_user["name"] %></label>
-          <%end%>
         </li>
       </ul>
     </div>
@@ -89,12 +84,12 @@
                 </ul>
               </div>
               <div class="icon_content_div">
-                <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
+                <a href="/signin"><i class='bx bx-heart' ></i></a>
               </div>
             </div>
             <div class="sub-btn">
               <button class="bt btn1">Buy now</button>
-              <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
+              <a href="/signin"><button class="bt btn2">Add cart</button></a>
             </div>
           </div>
         <% end %> <% elsif @presence_value==1 and @search_params !=[]%>
@@ -116,12 +111,12 @@
                   </ul>
                 </div>
                 <div class="icon_content_div">
-                   <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
+                   <a href="/signin"><i class='bx bx-heart' ></i></a>
                 </div>
               </div>
               <div class="sub-btn">
                 <button class="bt btn1">Book now</button>
-                <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
+                <a href="/signin"><button class="bt btn2">Add cart</button></a>
               </div>
             </div>
           <% end %>

@@ -11,18 +11,18 @@
          value="<%= form_authenticity_token %>"
          class="invisible_search"
        />
-       <span> <input type="search" placeholder="Serach with product name" name="search" class=" "><i class="bx bx-search-alt-2"></i></span>
+       <span> <input type="search" placeholder="Search with product name" name="search" class=" "><i class="bx bx-search-alt-2"></i></span>
      </form>
     </div> 
     <ul class="box-holder">
       <%if session[:current_user_id] == nil %>
         <li>
-          <%= link_to '/wislists', class: "class_link" do %>
+          <%= link_to '/signin', class: "class_link" do %>
             <i class="bx bxs-heart"></i>
           <% end %>
         </li>
         <li>
-          <%= link_to '/cart', class: "class_link" do %>
+          <%= link_to '/sigin', class: "class_link" do %>
             <i class="bx bxs-shopping-bag"></i>
           <% end %>
         </li>
@@ -64,7 +64,7 @@
 <div class="second-nav">
   <div class="container">
     <ul>
-      <li><a href="/list_products">Catogeries</a></li>
+      <li><a href="/list_products">Categories</a></li>
       <li><a href="">Brands</a></li>
       <li><a href="">Offers</a></li>
       <li><a href="">Rewards</a></li>

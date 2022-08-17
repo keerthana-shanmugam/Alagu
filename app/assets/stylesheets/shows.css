@@ -17,7 +17,7 @@
     float: left;
     margin-left: 0;
     margin-bottom: 0;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 .wish-price {
     font-size: 20px;
@@ -82,5 +82,5 @@
     border: 2px solid var(--black);
     margin-right: 0;
     margin-bottom: 0;
-    background-color: blue;
+    /* background-color: blue; */
 }
