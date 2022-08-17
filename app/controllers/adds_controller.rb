@@ -15,9 +15,9 @@ class AddsController < ApplicationController
   def add_catogeries
     product_catogeries = Catogery.new(catogeries_params)
     if product_catogeries.save
-      render plain:true
+      render plain: true
     else
-      render plain:false
+      render plain: false
     end
   end
 
@@ -25,9 +25,9 @@ class AddsController < ApplicationController
     product_sub_catogeries = SubCatogery.new(sub_catogeries_params)
     product_sub_catogeries.catogeries_id = 4
     if product_sub_catogeries.save
-      render plain:true
+      render plain: true
     else
-      render plain:false
+      render plain: false
     end
   end
 
@@ -36,9 +36,11 @@ class AddsController < ApplicationController
   def product_params
     params.require(:add).permit(:name, :image, :price, :catogeries)
   end
+
   def catogeries_params
     params.require(:product_catogeries).permit(:name)
   end
+
   def sub_catogeries_params
     params.require(:product_sub_catogeries).permit(:name)
   end

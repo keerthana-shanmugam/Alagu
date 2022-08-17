@@ -9,7 +9,7 @@
          value="<%= form_authenticity_token %>"
          class="invisible_search"
        />
-       <span> <input type="search" placeholder="Serach with product name" name="search" class=" "><i class="bx bx-search-alt-2"></i></span>
+       <span> <input type="search" placeholder="Search with product name" name="search" class=" "><i class="bx bx-search-alt-2"></i></span>
      </form>
     </div> 
     <ul class="box-holder">
@@ -62,7 +62,7 @@
 <div class="second-nav">
   <div class="container">
     <ul>
-      <li><a href="/list_products">Catogeries</a></li>
+      <li><a href="/list_products">Categories</a></li>
       <li><a href="">Brands</a></li>
       <li><a href="">Offers</a></li>
       <li><a href="">Rewards</a></li>
@@ -71,42 +71,36 @@
   </div>
 </div>
 <div class="wl-container">
+<% @total_price = 0 %>
   <% @items.each do |cart_items| %>
     <div class = "listing-box">
       <div class = "cart-img">
         <%= image_tag Add.find(cart_items.adds_id).image, class:"wish-img" %>
       </div>
       <div class ="wishlt-details-div">
-        <p class = "wish-price"><%= Add.find(cart_items.adds_id).name %> </p>
-        <p class = "wish-price"><%= Add.find(cart_items.adds_id).price %> </p>
+        <p class = "wish-price"><%=  Add.find(cart_items.adds_id).name %> </p>
+        <p class = "wish-price"><%= @price =  Add.find(cart_items.adds_id).price %> </p>
         <div class = "btn-redirect">
           <div class = "xmark-div"><%= link_to  "/cart_delete/#{cart_items.id}", method: :delete, data: {confirm:
-                'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%>
+            'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%>
           </div>
           <p class="quantity">Quantity : 
-            <select name="quantity" id="quantity">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
+          <%= @quantity = cart_items.quantity %>
           </p>
         </div>
       </div>
     </div>
+    <% @quantity_price = @quantity * @price %>
+    <% @total_price = @total_price + @quantity_price %>
+
   <% end %>
   
   <div class = "cart-total">
   <%# <p> %>
   
-  <% first_item_price =0 %>
-  <% @cart_items.each do |items| %>
   <%# <%= items['price'] %> 
-  <% first_item_price = first_item_price + items.price %>
-  <%end %>
-  <p>Total - <span>&#8377;</span><span><%= first_item_price %> </span></p> 
-    <button>Pay Now3</button>
+  <p>Total - <span>&#8377;</span><span><%= @total_price %> </span></p> 
+    <button>Pay Now</button>
   </div>
 </div>
+
