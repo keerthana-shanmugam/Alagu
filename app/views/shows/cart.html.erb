@@ -71,7 +71,7 @@
   </div>
 </div>
 <div class="wl-container">
-<% @total_price = 0 %>
+  <% @total_price = 0 %>
   <% @items.each do |cart_items| %>
     <div class = "listing-box">
       <div class = "cart-img">
@@ -85,22 +85,16 @@
             'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%>
           </div>
           <p class="quantity">Quantity : 
-          <%= @quantity = cart_items.quantity %>
+            <%= @quantity = cart_items.quantity %>
           </p>
         </div>
       </div>
     </div>
     <% @quantity_price = @quantity * @price %>
     <% @total_price = @total_price + @quantity_price %>
-
   <% end %>
-  
   <div class = "cart-total">
-  <%# <p> %>
-  
-  <%# <%= items['price'] %> 
-  <p>Total - <span>&#8377;</span><span><%= @total_price %> </span></p> 
+    <p>Total - <span>&#8377;</span><span><%= @total_price %> </span></p>
     <button>Pay Now</button>
   </div>
 </div>
-
