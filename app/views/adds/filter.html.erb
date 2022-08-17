@@ -1,0 +1,35 @@
+
+
+<% @beauty_product.each do |add| %>
+
+          <div class="box-container">
+            <div class="image_content">
+              <%= image_tag add.image, class:"list_img"%>
+            
+            </div>
+            <div class="list_content_div">
+              <div class="ul-list">
+                <ul>
+                  <li><%= add.name %></li>
+                  <div class="price_div">
+                    <span>&#8377;</span>
+                    <span>
+                      <li><%= add.price %></li>
+                    </span>
+                  </div>
+                </ul>
+              </div>
+              <div class="icon_content_div">
+                <div class = "icon-delete">
+                  <%= link_to  "/product_list_delete/#{add.id}", method: :delete, data: {confirm:'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%>
+                </div>
+                <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
+              </div>
+            </div>
+            <div class="sub-btn">
+              <button class="bt btn1">Buy now</button>
+              <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
+            </div>
+          </div>
+        <% end %>
+

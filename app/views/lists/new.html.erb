@@ -1,11 +1,11 @@
-<!-- <%# <h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p> %> -->
 <%if @current_user.present?%>
   <% if @current_user.role == "admin"%>
     <%=render "adminnew"%>
+    
   <%else%>
     <%=render "usernew"%>
   <% end %>
   <%else%>
   <%=render "noneusernew"%>
+  
 <%end%>

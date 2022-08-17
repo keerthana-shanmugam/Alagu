@@ -1,15 +1,21 @@
 # frozen_string_literal: true
 
 class AddsController < ApplicationController
-  def new; end
+  def new
+  end
 
   def create
     add = Add.new(product_params)
     if add.save
       redirect_to '/lists/new'
     else
+      flash[:error] = add.errors.full_messages.join(',')
       redirect_to '/adds/new'
     end
+  end
+
+  def filter
+    @beauty_product = Add.where('catogeries Like ?', "%#{params[:q]}%")
   end
 
   def add_catogeries

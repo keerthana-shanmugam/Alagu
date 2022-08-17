@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   get '/signout', to: 'sessions#destroy', as: :destroy_session
 
   get '/add_products', to: 'adds#new'
-  post '/add_products', to: 'adds#create'
+
+  post '/adding_products', to: 'adds#create'
+
 
   get '/list_products', to: 'lists#new'
   delete '/product_list_delete/:id', to: 'lists#product_list_delete'
@@ -42,4 +44,7 @@ Rails.application.routes.draw do
   get '/filter_catogeries', to: 'lists#filter'
 
   post 'cart', to: 'lists#cart_items'
+
+
+  get 'filter', to: 'adds#filter'
 end
