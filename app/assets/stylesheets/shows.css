@@ -11,56 +11,10 @@
     padding: 10px;
 }
 
-.listing-box{
-    margin: 15px;
-    padding: 7px;
-    float: left;
-    margin-left: 0;
-    margin-bottom: 0;
-    /* background-color: aqua; */
-}
-.wish-price {
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 5px;
-    padding: 2px;
-}
-.wishlt-details-div{
-    border: 2px solid var(--black);
-    border-top: transparent;
-    
-}
-.wish-img {
-    width: 300px;
-    height: 200px;
-    border: 2px solid var(--black);
-}
 .fa-solid.fa-xmark {
     font-size: 20px;
     color: var(--black);
 
-}
-.btn-redirect {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.xmark-div {
-    border: 2px solid var(--black);
-    width: 50px;
-    padding: 5px;
-    padding-left: 15px;
-    margin: 5px;
-}
-.btn-cart {
-    width: 170px;
-    height: auto;
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    border: 2px solid var(--black);
-    background-color: var(--white);
 }
 
 .quantity {

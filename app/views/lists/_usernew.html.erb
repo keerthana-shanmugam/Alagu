@@ -1,6 +1,6 @@
 <div class="first-nav">
   <div class="container">
-    <label class="logo"> azhagu</label>
+    <%= link_to '/', class:"logo"  do %><label> azhagu</label><%end%>
     <div class="search_filter_div">
       <form action="/search" method="get">
         <input
@@ -43,15 +43,17 @@
     <div class="container">
       <ul>
         <li><a href="/list_products">Categories</a></li>
-        <li><a href="">Brands</a></li>
-        <li><a href="">Offers</a></li>
-        <li><a href="">Rewards</a></li>
-        <li><a href="">Beauty Advice</a></li>
+        <li><a href="homes/PageBuilding">Brands</a></li>
+        <li><a href="homes/PageBuilding">Offers</a></li>
+        <li><a href="homes/PageBuilding">Rewards</a></li>
+        <li><a href="homes/PageBuilding">Beauty Advice</a></li>
       </ul>
     </div>
   </div>
   <div class="catogeries_main_div">
     <div class="catogeries_sub_div">
+
+
       <ul class="list_content">
         <div>
           <li>
@@ -77,64 +79,68 @@
           </li>
         </div>
       </ul>
-      <div class="product_list_div">
-        <% if @presence_value==0 %> <% Add.all.each do |add|%>
-            <div class="box-container">
-              <div class="image_content">
-                <%= image_tag add.image, class:"list_img"%>
-              </div>
-              <div class="list_content_div">
-                <div class="ul-list">
-                  <ul>
-                    <li><%= add.name %></li>
-                    <div class="price_div">
-                      <span>&#8377;</span>
-                      <span>
-                        <li><%= add.price %></li>
-                      </span>
-                    </div>
-                  </ul>
-                </div>
-                <div class="icon_content_div">
-                  <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
-                </div>
-              </div>
-              <div class="sub-btn">
-                <button class="bt btn1">Buy now</button>
-                <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
-              </div>
+
+
+      
+        <div class="product_list_div">
+      <% if @presence_value==0 %> <% Add.all.each do |add|%>
+
+      <div class="card" style="width: 18rem">
+        <%= image_tag add.image, height:"300px" ,class: "img-card"%>
+
+        <div class="card-body">
+          <div class="card-title-holder">
+            <h5 class="card-title"><%= add.name %></h5>
+            <div class="like-cross-holder">
+              <a href="/wishlist/<%= add['id'] %>" class="green"
+                ><i class="bx bxs-heart"></i
+              ></a>
             </div>
-          <% end %> <% elsif @presence_value==1 and @search_params !=[]%>
-          <% Add.all.each do |add|%> <% if @search_params.include? add.id %>
-              <div class="box-container">
-                <div class="image_content">
-                  <%= image_tag add.image, class:"list_img"%>
-                </div>
-                <div class="list_content_div">
-                  <div class="ul-list">
-                    <ul>
-                      <li><%= add.name %></li>
-                      <div class="price_div">
-                        <span>&#8377;</span>
-                        <span>
-                          <li><%= add.price %></li>
-                        </span>
-                      </div>
-                    </ul>
-                  </div>
-                  <div class="icon_content_div">
-                    <a href="/wishlist/<%= add['id'] %>"><i class='bx bx-heart' ></i></a>
-                  </div>
-                </div>
-                <div class="sub-btn">
-                  <button class="bt btn1">Book now</button>
-                  <a href="/cart/<%= add['id'] %>"><button class="bt btn2">Add cart</button></a>
-                </div>
-              </div>
-            <% end %>
-          <% end %> <% elsif @search_params==[] and @presence_value==1 %>
-          <div class="no_result_error">No Results Found</div>
-        <%end%>
+          </div>
+
+          <p class="card-text">
+            <li>RS.<%= add.price %> <i class="bx bxs-purchase-tag"></i></li>
+          </p>
+          <div class="btn-container">
+            <%= link_to "homes/PageBuilding" ,class:"btn btn-success" do%> Book
+            now<%end%>
+            <a href="/cart/<%= add['id'] %>" class="btn btn-outline-success">
+              add to cart</a
+            >
+          </div>
+        </div>
       </div>
+
+      <% end %> <% elsif @presence_value==1 and @search_params !=[]%> <%
+      Add.all.each do |add|%> <% if @search_params.include? add.id %>
+      <div class="card" style="width: 18rem">
+        <%= image_tag add.image, height:"300px"%>
+
+        <div class="card-body">
+          <div class="card-title-holder">
+            <h5 class="card-title"><%= add.name %></h5>
+            <div class="like-cross-holder">
+              <a href="/wishlist/<%= add['id'] %>" class="green"
+                ><i class="bx bxs-heart"></i
+              ></a>
+            </div>
+          </div>
+
+          <p class="card-text">
+            <li>RS.<%= add.price %> <i class="bx bxs-purchase-tag"></i></li>
+          </p>
+          <div class="btn-container">
+            <%= link_to "homes/PageBuilding" ,class:"btn btn-success" do%> Book
+            now<%end%>
+            <a href="/cart/<%= add['id'] %>" class="btn btn-outline-success">
+              add to cart</a
+            >
+          </div>
+        </div>
+      </div>
+      <% end %> <% end %> <% elsif @search_params==[] and @presence_value==1 %>
+      <div class="no_result_error">No Results Found</div>
+      <%end%>
+    </div>
     </div>
   </div>

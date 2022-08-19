@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get 'adds/new'
   get 'sessions/new'
   get 'registration/new'
-  get 'adds/catogeries'
-  get 'adds/sub_catogeries'
+  get 'homes/PageBuilding'
+  # get 'adds/catogeries'
+  # get 'adds/sub_catogeries'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'homes#index'
   get '/sign_up', to: 'registration#new'
@@ -34,15 +35,15 @@ Rails.application.routes.draw do
 
   match '/search', to: 'lists#search', via: :get
 
-  get '/add_catogeries', to: 'adds#new'
-  post '/add_catogeries', to: 'adds#add_catogeries'
-
-  get '/add_sub_catogeries', to: 'adds#new'
-  post '/add_sub_catogeries', to: 'adds#add_sub_catogeries'
-
   get '/filter_catogeries', to: 'lists#filter'
 
   post 'cart', to: 'lists#cart_items'
 
   get 'filter', to: 'adds#filter'
+
+  # get '/add_catogeries', to: 'adds#new'
+  # post '/add_catogeries', to: 'adds#add_catogeries'
+
+  # get '/add_sub_catogeries', to: 'adds#new'
+  # post '/add_sub_catogeries', to: 'adds#add_sub_catogeries'
 end
