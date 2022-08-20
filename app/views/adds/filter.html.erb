@@ -13,9 +13,8 @@
      </form>
     </div> 
     <ul class="box-holder">
-      
       <%if session[:current_user_id] == nil %>
-      <li>
+       <li>
           <%= link_to '/wishlists', class: "class_link" do %>
             <em class="bx bxs-heart"></em>
           <% end %>
@@ -43,89 +42,82 @@
         <li>
           <%= link_to '/cart', class: "class_link" do %>
             <em class="bx bxs-shopping-bag"><span><%= @cart_count %><span></em>
-              <% end %>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <em class="bx bxs-user-circle"></em>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="/signout">Profile</a></li>
-                <li><a class="dropdown-item" href="/signout"> <em class='bx bx-log-out'></em>Logout</a></li>
-              </ul>
-              <% logged_user = User.find(session[:current_user_id]) %>
-              <label class="user-name"><%= logged_user["name"] %></label>
-            </li>
-          <%end%>
-        </ul>
+          <% end %>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <em class="bx bxs-user-circle"></em>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/signout">Profile</a></li>
+            <li><a class="dropdown-item" href="/signout"> <em class='bx bx-log-out'></em>Logout</a></li>
+          </ul>
+          <% logged_user = User.find(session[:current_user_id]) %>
+          <label class="user-name"><%= logged_user["name"] %></label>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+</div>
+<div class="second-nav">
+  <div class="container">
+    <ul>
+      <li><a href="/list_products">Categories</a></li>
+      <li><a href="homes/PageBuilding">Brands</a></li>
+      <li><a href="homes/PageBuilding">Offers</a></li>
+      <li><a href="homes/PageBuilding">Rewards</a></li>
+      <li><a href="homes/PageBuilding">Beauty Advice</a></li>
+    </ul>
+  </div>
+</div>
+<div class="catogeries_main_div">
+  <div class="catogeries_sub_div">
+    <ul class="list_content">
+      <div>
+        <li>
+          <a class="dropdown-item">
+            <form action="/filter" method="get"><button type="submit" value="makeup" name="q" class="border-0 bg-white text-dark w-100">Makeup</button></form>
+          </a>
+              
+        </li>
+        <li>
+          <a class="dropdown-item">
+            <form action="/filter" method="get"><button type="submit" value="face" name="q" class="border-0 bg-white text-dark w-100">Face</button></form>
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item">
+            <form action="/filter" method="get"><button type="submit" value="skin" name="q" class="border-0 bg-white text-dark w-100">Skin</button></form>
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item">
+            <form action="/filter" method="get"><button type="submit" value="hair" name="q" class="border-0 bg-white text-dark w-100">Hair</button></form>
+          </a>
+        </li>
       </div>
-    </div>
-    <div class="second-nav">
-      <div class="container">
-        <ul>
-          <li><a href="/list_products">Categories</a></li>
-          <li><a href="homes/PageBuilding">Brands</a></li>
-          <li><a href="homes/PageBuilding">Offers</a></li>
-          <li><a href="homes/PageBuilding">Rewards</a></li>
-          <li><a href="homes/PageBuilding">Beauty Advice</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="catogeries_main_div">
-      <div class="catogeries_sub_div">
-        <ul class="list_content">
-          <div>
-            <li>
-              <a class="dropdown-item">
-                <form action="/filter" method="get"><button type="submit" value="makeup" name="q" class="border-0 bg-white text-dark w-100">Makeup</button></form>
-              </a>
-              <%# <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span> %>
-            </li>
-            <li>
-              <a class="dropdown-item">
-                <form action="/filter" method="get"><button type="submit" value="face" name="q" class="border-0 bg-white text-dark w-100">Face</button></form>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item">
-                <form action="/filter" method="get"><button type="submit" value="skin" name="q" class="border-0 bg-white text-dark w-100">Skin</button></form>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item">
-                <form action="/filter" method="get"><button type="submit" value="hair" name="q" class="border-0 bg-white text-dark w-100">Hair</button></form>
-              </a>
-            </li>
-          </div>
-        </ul>
-        <div class="product_list_div">
-          <% @beauty_product.each do |add| %>
-            
-      <div class="card" style="width: 18rem">
-        <%= image_tag add.image, height:"300px" ,class: "img-card"%>
-
-        <div class="card-body">
-          <div class="card-title-holder">
-            <h5 class="card-title"><%= add.name %></h5>
-            <div class="like-cross-holder">
-              <a href="/wishlist/<%= add['id'] %>" class="green"
-                ><em class="bx bxs-heart"><em></a>
+    </ul>
+    <div class="product_list_div">
+      <% @beauty_product.each do |add| %>
+        <div class="card" style="width: 18rem">
+          <%= image_tag add.image, height:"300px" ,class: "img-card"%>
+          <div class="card-body">
+            <div class="card-title-holder">
+              <h5 class="card-title"><%= add.name %></h5>
+                <div class="like-cross-holder">
+                  <a href="/wishlist/<%= add['id'] %>" class="green"><em class="bx bxs-heart"><em></a>
+                </div>
+            </div>
+            <p class="card-text">
+              <li>RS.<%= add.price %> <em class="bx bxs-purchase-tag"></em></li>
+            </p>
+            <div class="btn-container">
+              <%= link_to "homes/PageBuilding" ,class:"btn btn-success" do%> Book now <%end%>
+              <a href="/cart/<%= add['id'] %>" class="btn btn-outline-success"> Add to cart </a>
             </div>
           </div>
-
-          <p class="card-text">
-            <li>RS.<%= add.price %> <em class="bx bxs-purchase-tag"></em></li>
-          </p>
-          <div class="btn-container">
-            <%= link_to "homes/PageBuilding" ,class:"btn btn-success" do%> Book
-            now<%end%>
-            <a href="/cart/<%= add['id'] %>" class="btn btn-outline-success">
-              add to cart</a
-            >
-          </div>
         </div>
-      </div>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     </div>
+  </div>
+</div>  

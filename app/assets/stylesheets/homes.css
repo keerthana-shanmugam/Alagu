@@ -32,10 +32,10 @@ a{
   padding: 20px;
   margin-top: -4px;
 }
-.box-holder i {
+.box-holder em {
   color: var(--white);
 }
-.box-holder i:hover{
+.box-holder em:hover{
   color: var(--secondary);
 }
 .dropdown {
@@ -91,7 +91,7 @@ a{
   width: 400px;
   border: none;
 }
-.first-nav span i {
+.first-nav span em {
   font-size: 18px;
   margin-left: -40px;
   color: var(--black);
