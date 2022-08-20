@@ -42,7 +42,7 @@
 
 .slick-prev:before,
 .slick-next:before {
-    font-family: 'slick';
+    font-family:Arial, Helvetica, sans-serif 'slick';
     font-size: 20px;
     line-height: 1;
     opacity: .75;

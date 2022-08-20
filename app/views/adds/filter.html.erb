@@ -78,7 +78,6 @@
           <a class="dropdown-item">
             <form action="/filter" method="get"><button type="submit" value="makeup" name="q" class="border-0 bg-white text-dark w-100">Makeup</button></form>
           </a>
-              
         </li>
         <li>
           <a class="dropdown-item">
@@ -100,16 +99,16 @@
     <div class="product_list_div">
       <% @beauty_product.each do |add| %>
         <div class="card" style="width: 18rem">
-          <%= image_tag add.image, height:"300px" ,class: "img-card"%>
+          <%= image_tag add.image, height:"300px" ,class: "img-card", alt: "image not available" %>
           <div class="card-body">
             <div class="card-title-holder">
               <h5 class="card-title"><%= add.name %></h5>
                 <div class="like-cross-holder">
-                  <a href="/wishlist/<%= add['id'] %>" class="green"><em class="bx bxs-heart"><em></a>
+                  <a href="/wishlist/<%= add['id'] %>" class="green"><em class="fa-solid fa-heart"></em></a>
                 </div>
             </div>
             <p class="card-text">
-              <li>RS.<%= add.price %> <em class="bx bxs-purchase-tag"></em></li>
+              Rs.<%= add.price %> <em class="bx bxs-purchase-tag"></em>
             </p>
             <div class="btn-container">
               <%= link_to "homes/PageBuilding" ,class:"btn btn-success" do%> Book now <%end%>

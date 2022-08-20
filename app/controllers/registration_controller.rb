@@ -3,7 +3,9 @@
 class RegistrationController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
-  def new; end
+  def new
+    puts '============'
+  end
 
   def create
     user = User.new(user_params)

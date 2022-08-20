@@ -90,14 +90,14 @@
   <!-- The slideshow/carousel -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= image_tag('makeup_carousel2.webp',class:"d-block", style:"width:100%")%>
+      <%= image_tag('makeup_carousel2.webp',class:"d-block", style:"width:100%", alt: "beauty_products")%>
     </div>
     <div class="carousel-item">
-      <%= image_tag('makeup_carousel1.jpg',class:"d-block", style:"width:100%")
+      <%= image_tag('makeup_carousel1.jpg',class:"d-block", style:"width:100%", alt: "beauty_products")
       %>
     </div>
     <div class="carousel-item">
-      <%= image_tag('makeup_carousel.webp',class:"d-block", style:"width:100%")
+      <%= image_tag('makeup_carousel.webp',class:"d-block", style:"width:100%", alt: "beauty_products")
       %>
     </div>
   </div>
@@ -124,19 +124,19 @@
     <h3>Top Brands</h3>
     <ul class="brand-holder">
       <li>
-        <%= image_tag('brand_logo/maybelline_logo.png', style:"width:170px") %>
+        <%= image_tag('brand_logo/maybelline_logo.png', style:"width:170px", alt: "beauty_products_brand") %>
       </li>
       <li>
-        <%= image_tag('brand_logo/nivea_logo.png', style:"width:170px") %>
+        <%= image_tag('brand_logo/nivea_logo.png', style:"width:170px", alt: "beauty_products_brand") %>
       </li>
       <li>
-        <%= image_tag('brand_logo/lakme_logo.png', style:"width:170px") %>
+        <%= image_tag('brand_logo/lakme_logo.png', style:"width:170px", alt: "beauty_products_brand") %>
       </li>
       <li>
-        <%= image_tag('brand_logo/nykaa_logo.svg', style:"width:170px") %>
+        <%= image_tag('brand_logo/nykaa_logo.svg', style:"width:170px", alt: "beauty_products_brand") %>
       </li>
       <li>
-        <%= image_tag('brand_logo/loreal-logo.png', style:"width:170px") %>
+        <%= image_tag('brand_logo/loreal-logo.png', style:"width:170px" , alt: "beauty_products_brand") %>
       </li>
     </ul>
   </div>
@@ -146,7 +146,7 @@
   <h1>New Products</h1>
   <div class="row row-cols-1 row-cols-md-4 g-4">
     <div class="card">
-      <%= image_tag('beauty-products.jpg', class: "card-img-top") %>
+      <%= image_tag('beauty-products.jpg', class: "card-img-top", alt: "beauty_products") %>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
@@ -156,7 +156,7 @@
       </div>
     </div>
     <div class="card">
-      <%= image_tag('body_oil.jpg', class: "card-img-top") %>
+      <%= image_tag('body_oil.jpg', class: "card-img-top", alt: "beauty_products") %>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
@@ -166,7 +166,7 @@
       </div>
     </div>
     <div class="card">
-      <%= image_tag('skin_care1.jpg', class: "card-img-top") %>
+      <%= image_tag('skin_care1.jpg', class: "card-img-top", alt: "beauty_products") %>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
@@ -184,7 +184,7 @@
 <br><br><br>
 
 
-<%= image_tag("1955.jpg" ,width:"100%" ,height: "200px") %>
+<%= image_tag("1955.jpg" ,width:"100%" ,height: "200px", alt: "beauty_products") %>
 <br>
 <br><br><br>
 <%# image banner  %>
@@ -194,27 +194,27 @@
 <div class="slick_carousel">
   <div>
     <h3>
-      <img src="<%= asset_path 'face-gel.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+      <img src="<%= asset_path 'face-gel.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
     </h3>
   </div>
   <div>
     <h3>
-      <img src="<%= asset_path 'compact.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+      <img src="<%= asset_path 'compact.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
     </h3>
   </div>
   <div>
     <h3>
-      <img src="<%= asset_path 'nailpolish.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+      <img src="<%= asset_path 'nailpolish.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
     </h3>
   </div>
   <div>
     <h3>
-      <img src="<%= asset_path 'hair serum.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+      <img src="<%= asset_path 'hair serum.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
     </h3>
   </div>
   <div>
     <h3>
-      <img src="<%= asset_path 'mascar.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+      <img src="<%= asset_path 'mascar.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
     </h3>
   </div>
 </div>

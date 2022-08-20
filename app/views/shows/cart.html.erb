@@ -75,13 +75,13 @@
   <% @total_price = 0 %>
   <% @items.each do |cart_items| %>
     <div class="card" style="width: 18rem">
-      <%= image_tag Add.find(cart_items.adds_id).image, height:"300px" ,class: "img-card"%>
+      <%= image_tag Add.find(cart_items.adds_id).image, height:"300px" ,class: "img-card", alt: "image not available" %>
       <div class="card-body">
         <div class="card-title-holder">
           <h5 class="card-title"><%= Add.find(cart_items.adds_id).name %></h5>
         </div>
         <p class="card-text">
-          <li>RS.<%= @price =  Add.find(cart_items.adds_id).price %> <em class="bx bxs-purchase-tag"></em></li>
+          Rs.<%= @price =  Add.find(cart_items.adds_id).price %> <em class="bx bxs-purchase-tag"></em>
         </p>
         <div class="btn-container">
           <%= link_to  "/cart_delete/#{cart_items.id}", method: :delete, class:"btn btn-success", data: {confirm:
