@@ -9,23 +9,23 @@
          value="<%= form_authenticity_token %>"
          class="invisible_search"
        />
-       <span> <input type="search" placeholder="Search with product name" name="search" class=" "><i class="bx bx-search-alt-2"></i></span>
+       <span> <input type="search" placeholder="Search with product name" name="search" class=" "><em class="bx bx-search-alt-2"></em></span>
      </form>
     </div> 
     <ul class="box-holder">
       <li>
         <%= link_to '/signin', class: "class_link" do %>
-          <i class="bx bxs-heart"></i>
+          <em class="bx bxs-heart"></em>
       <% end %>
     </li>
     <li>
       <%= link_to '/signin', class: "class_link" do %>
-        <i class="bx bxs-shopping-bag"></i>
+        <em class="bx bxs-shopping-bag"></em>
       <% end %>
     </li>
     <li class="dropdown">
       <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bx bxs-user-circle"></i>
+        <em class="bx bxs-user-circle"></em>
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <li><a class="dropdown-item" href="/signin">Login</a></li>
@@ -84,13 +84,13 @@
             <h5 class="card-title"><%= add.name %></h5>
             <div class="like-cross-holder">
               <a href="/signin" class="green"
-                ><i class="bx bxs-heart"></i
+                ><em class="bx bxs-heart"></em
               ></a>
             </div>
           </div>
 
           <p class="card-text">
-            <li>RS.<%= add.price %> <i class="bx bxs-purchase-tag"></i></li>
+            <li>RS.<%= add.price %> <em class="bx bxs-purchase-tag"></em></li>
           </p>
           <div class="btn-container">
             <%= link_to "homes/PageBuilding" ,class:"btn btn-success" do%> Book
@@ -112,13 +112,13 @@
             <h5 class="card-title"><%= add.name %></h5>
             <div class="like-cross-holder">
               <a href="/signin" class="green"
-                ><i class="bx bxs-heart"></i
+                ><em class="bx bxs-heart"></em
               ></a>
             </div>
           </div>
 
           <p class="card-text">
-            <li>RS.<%= add.price %> <i class="bx bxs-purchase-tag"></i></li>
+            <li>RS.<%= add.price %> <em class="bx bxs-purchase-tag"></em></li>
           </p>
           <div class="btn-container">
             <%= link_to "homes/PageBuilding" ,class:"btn btn-success" do%> Book

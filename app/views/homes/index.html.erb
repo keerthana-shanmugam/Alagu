@@ -9,7 +9,7 @@
          value="<%= form_authenticity_token %>"
          class="invisible_search"
        />
-       <span> <input type="search" placeholder="Search with product name" name="search" class=" "><i class="bx bx-search-alt-2"></i></span>
+       <span> <input type="search" placeholder="Search with product name" name="search" class=" "><em class="bx bx-search-alt-2"></em></span>
      </form>
     </div> 
     <ul class="box-holder">
@@ -17,18 +17,18 @@
       <%if session[:current_user_id] == nil %>
       <li>
         <%= link_to '/wishlists', class: "class_link" do %>
-          <i class="bx bxs-heart"></i>
+          <em class="bx bxs-heart"></em>
 
         <% end %>
       </li>
       <li>
         <%= link_to '/cart', class: "class_link" do %>
-          <i class="bx bxs-shopping-bag"></i>
+          <em class="bx bxs-shopping-bag"></em>
         <% end %>
       </li>
         <li class="dropdown">
           <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bx bxs-user-circle"></i>
+            <em class="bx bxs-user-circle"></em>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="/signin">Login</a></li>
@@ -38,22 +38,22 @@
       <%else%>
       <li>
         <%= link_to '/wishlists', class: "class_link" do %>
-          <i class="bx bxs-heart"><span><%= @wishlist_count %></span></i>
+          <em class="bx bxs-heart"><span><%= @wishlist_count %></span></em>
 
         <% end %>
       </li>
       <li>
         <%= link_to '/cart', class: "class_link" do %>
-          <i class="bx bxs-shopping-bag"><span><%= @cart_count %><span></i>
+          <em class="bx bxs-shopping-bag"><span><%= @cart_count %><span></em>
         <% end %>
       </li>
         <li class="dropdown">
           <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bx bxs-user-circle"></i>
+            <em class="bx bxs-user-circle"></em>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="/signout">Profile</a></li>
-            <li><a class="dropdown-item" href="/signout"> <i class='bx bx-log-out'></i>Logout</a></li>
+            <li><a class="dropdown-item" href="/signout"> <em class='bx bx-log-out'></em>Logout</a></li>
           </ul>
           <% logged_user = User.find(session[:current_user_id]) %>
           <label class="user-name"><%= logged_user["name"] %></label>
