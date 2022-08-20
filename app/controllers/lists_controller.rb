@@ -48,9 +48,6 @@ class ListsController < ApplicationController
       redirect_to 'lists/new'
     else
       product_id = params[:product_id]
-      puts '======================='
-      puts product_id
-      # flash[:alert] = "Added to Wishlist!"
       @wishlist_products = Wishlist.new(adds_id: product_id, users_id: current_user.id)
       redirect_to '/lists/new' if @wishlist_products.save
     end
@@ -73,9 +70,6 @@ class ListsController < ApplicationController
   def product_list_delete
     @cancel = Add.where(id: params[:id])
     @cancel.destroy_all
-    puts '=================================='
-    puts @cancel.destroy_all
-    puts '=================================='
     redirect_to '/list_products'
   end
 end
