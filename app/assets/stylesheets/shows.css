@@ -38,3 +38,12 @@
     margin-bottom: 0;
     /* background-color: blue; */
 }
+
+
+/* em.bxs-heart:before{
+    content: "" !important;
+} */
+.btn.btn-outline-success,.btn.btn-success{
+    font-family: none !important;
+    font-style: normal !important;
+}

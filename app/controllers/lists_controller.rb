@@ -30,7 +30,7 @@ class ListsController < ApplicationController
       @@array.push(result.id)
       puts result.name
     end
-    redirect_to '/lists/new'
+    redirect_to '/list_products'
   end
 
   def array_retuner
@@ -45,11 +45,11 @@ class ListsController < ApplicationController
     current_user
     if current_user.nil?
       flash[:alert] = 'Please Login!'
-      redirect_to 'lists/new'
+      redirect_to '/list_products'
     else
       product_id = params[:product_id]
       @wishlist_products = Wishlist.new(adds_id: product_id, users_id: current_user.id)
-      redirect_to '/lists/new' if @wishlist_products.save
+      redirect_to '/list_products' if @wishlist_products.save
     end
   end
 
@@ -58,12 +58,12 @@ class ListsController < ApplicationController
     if @cart
       @cart.increment(:quantity)
       @cart.save
-      redirect_to '/lists/new'
+      redirect_to '/list_products'
     else
       product_id = params[:product_id]
       # flash[:alert] = "Added to Cart!"
       @cart_products = Cart.new(adds_id: product_id, users_id: current_user.id)
-      redirect_to '/lists/new' if @cart_products.save
+      redirect_to '/list_products' if @cart_products.save
     end
   end
 

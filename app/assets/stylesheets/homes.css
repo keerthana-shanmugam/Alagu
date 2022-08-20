@@ -7,6 +7,9 @@ a{
   text-decoration: none !important;
 }
 .logo {
+  font-size: 32px;
+  text-transform: capitalize;
+  padding: 0 50px;
   color: var(--white);
 }
 .logo:hover {
@@ -77,11 +80,7 @@ a{
 .class_link:hover{
   color: var(--secondary);
 }
-.logo {
-  font-size: 32px;
-  text-transform: capitalize;
-  padding: 0 50px;
-}
+
 .first-nav input {
   border-radius: 30px;
   padding: 0px 10px;

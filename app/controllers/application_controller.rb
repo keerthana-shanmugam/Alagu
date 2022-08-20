@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
       @@array.push(result.id)
       puts result.name
     end
-    redirect_to '/lists/new'
+    redirect_to '/list_products'
   end
 
   def array_retuner

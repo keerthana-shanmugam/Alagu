@@ -60,7 +60,6 @@
             <a class="dropdown-item">
               <form action="/filter" method="get"><button type="submit" value="makeup" name="q" class="border-0 bg-white text-dark w-100">Makeup</button></form>
             </a>
-            <%# <span class="down-arrow"><i class='bx bxs-down-arrow' ></i></span> %>
           </li>
           <li>
             <a class="dropdown-item">
@@ -86,7 +85,7 @@
       <% if @presence_value==0 %> <% Add.all.each do |add|%>
 
       <div class="card" style="width: 18rem">
-        <%= image_tag add.image, height:"300px" ,class: "img-card"%>
+        <%= image_tag add.image, height:"300px" ,class: "img-card", alt: "image not available" %>
 
         <div class="card-body">
           <div class="card-title-holder">
@@ -99,7 +98,7 @@
           </div>
 
           <p class="card-text">
-            <li>RS.<%= add.price %> <em class="bx bxs-purchase-tag"></em></li>
+            Rs.<%= add.price %> <em class="bx bxs-purchase-tag"></em>
           </p>
           <div class="btn-container">
             <%= link_to "homes/PageBuilding" ,class:"btn btn-success" do%> Book
@@ -114,7 +113,7 @@
       <% end %> <% elsif @presence_value==1 and @search_params !=[]%> <%
       Add.all.each do |add|%> <% if @search_params.include? add.id %>
       <div class="card" style="width: 18rem">
-        <%= image_tag add.image, height:"300px"%>
+        <%= image_tag add.image, height:"300px", alt: "image not available" %>
 
         <div class="card-body">
           <div class="card-title-holder">
@@ -127,7 +126,7 @@
           </div>
 
           <p class="card-text">
-            <li>RS.<%= add.price %> <em class="bx bxs-purchase-tag"></em></li>
+            Rs.<%= add.price %> <em class="bx bxs-purchase-tag"></em>
           </p>
           <div class="btn-container">
             <%= link_to "homes/PageBuilding" ,class:"btn btn-success" do%> Book

@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class AddsController < ApplicationController
-  def new; end
+  def new
+    puts '============'
+  end
 
   def create
     add = Add.new(product_params)

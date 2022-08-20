@@ -74,13 +74,13 @@
 <div class="wl-container">
   <% @items.each do |wishlist_items| %>
     <div class="card" style="width: 18rem">
-      <%= image_tag Add.find(wishlist_items.adds_id).image, height:"300px"%>
+      <%= image_tag Add.find(wishlist_items.adds_id).image, height:"300px", alt: "image not available" %>
       <div class="card-body">
         <div class="card-title-holder">
           <h5 class="card-title"><%= Add.find(wishlist_items.adds_id).name %></h5>
         </div>
         <p class="card-text">
-          <li>RS.<%= Add.find(wishlist_items.adds_id).price %> <em class="bx bxs-purchase-tag"></em></li>
+          Rs.<%= Add.find(wishlist_items.adds_id).price %> <em class="bx bxs-purchase-tag"></em>
         </p>
         <div class="btn-container">
           <%= link_to  "/wishlist_delete/#{wishlist_items.id}", method: :delete,class:"btn btn-success", data: {confirm: 'Are you sure ?'} do %><em class = "fa-solid fa-xmark"></em><%end%>
