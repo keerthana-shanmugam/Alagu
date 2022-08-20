@@ -1,6 +1,6 @@
 <div class="first-nav">
   <div class="container">
-    <label class="logo"> azhagu</label>
+    <%= link_to '/', class:"logo"  do %><label> azhagu</label><%end%>
       <div class="search_filter_div">
       <form action="/search" method="get">
         <input
@@ -62,14 +62,16 @@
     </ul>
   </div>
 </div>
+
+
 <div class="second-nav">
   <div class="container">
     <ul>
       <li><a href="/list_products">Categories</a></li>
-      <li><a href="">Brands</a></li>
-      <li><a href="">Offers</a></li>
-      <li><a href="">Rewards</a></li>
-      <li><a href="">Beauty Advice</a></li>
+      <li><a href="homes/PageBuilding">Brands</a></li>
+      <li><a href="homes/PageBuilding">Offers</a></li>
+      <li><a href="homes/PageBuilding">Rewards</a></li>
+      <li><a href="homes/PageBuilding">Beauty Advice</a></li>
     </ul>
   </div>
 </div>
@@ -101,20 +103,20 @@
   </div>
   <!-- Left and right controls/icons -->
   <button
-    class="carousel-control-prev"
+    class="carousel-control-prev ace"
     type="button"
     data-bs-target="#demo"
     data-bs-slide="prev"
   >
-    <span class="carousel-control-prev-icon"></span>
+    <span class="carousel-control-prev-icon btn btn-outline-dark"></span>
   </button>
   <button
-    class="carousel-control-next"
+    class="carousel-control-next ace"
     type="button"
     data-bs-target="#demo"
     data-bs-slide="next"
   >
-    <span class="carousel-control-next-icon"></span>
+    <span class="carousel-control-next-icon  btn btn-outline-dark"></span>
   </button>
 </div>
 <div class="main_div">
@@ -144,7 +146,7 @@
   <h1>New Products</h1>
   <div class="row row-cols-1 row-cols-md-4 g-4">
     <div class="card">
-      <%= image_tag('img1.jpg', class: "card-img-top") %>
+      <%= image_tag('beauty-products.jpg', class: "card-img-top") %>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
@@ -154,7 +156,7 @@
       </div>
     </div>
     <div class="card">
-      <%= image_tag('img1.jpg', class: "card-img-top") %>
+      <%= image_tag('body_oil.jpg', class: "card-img-top") %>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
@@ -164,7 +166,7 @@
       </div>
     </div>
     <div class="card">
-      <%= image_tag('img1.jpg', class: "card-img-top") %>
+      <%= image_tag('skin_care1.jpg', class: "card-img-top") %>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
@@ -176,33 +178,47 @@
     </div>
   </div>
 </div>
+
+<%# image banner %>
+<div class="container">
+<br><br><br>
+
+
+<%= image_tag("1955.jpg" ,width:"100%" ,height: "200px") %>
+<br>
+<br><br><br>
+<%# image banner  %>
 <%# section new products ends ------------------------ %>
+
+  
 <div class="slick_carousel">
   <div>
     <h3>
-      <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+      <img src="<%= asset_path 'face-gel.jpg' %>" class="home_offer_img1" width="400px" height="250px">
     </h3>
   </div>
   <div>
     <h3>
-      <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+      <img src="<%= asset_path 'compact.jpg' %>" class="home_offer_img1" width="400px" height="250px">
     </h3>
   </div>
   <div>
     <h3>
-      <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+      <img src="<%= asset_path 'nailpolish.jpg' %>" class="home_offer_img1" width="400px" height="250px">
     </h3>
   </div>
   <div>
     <h3>
-      <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+      <img src="<%= asset_path 'hair serum.jpg' %>" class="home_offer_img1" width="400px" height="250px">
     </h3>
   </div>
   <div>
     <h3>
-      <img src="<%= asset_path 'img1.jpg' %>" class="home_offer_img1" width="400px" height="250px">
+      <img src="<%= asset_path 'mascar.jpg' %>" class="home_offer_img1" width="400px" height="250px">
     </h3>
   </div>
+</div>
+
 </div>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

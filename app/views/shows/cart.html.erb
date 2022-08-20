@@ -1,6 +1,6 @@
 <div class="first-nav">
   <div class="container">
-    <label class="logo"> azhagu</label>
+    <%= link_to '/', class:"logo"  do %><label> azhagu</label><%end%>
     <div class="search_filter_div">
       <form action="/search" method="get">
         <input
@@ -63,38 +63,40 @@
   <div class="container">
     <ul>
       <li><a href="/list_products">Categories</a></li>
-      <li><a href="">Brands</a></li>
-      <li><a href="">Offers</a></li>
-      <li><a href="">Rewards</a></li>
-      <li><a href="">Beauty Advice</a></li>
+      <li><a href="homes/PageBuilding">Brands</a></li>
+      <li><a href="homes/PageBuilding">Offers</a></li>
+      <li><a href="homes/PageBuilding">Rewards</a></li>
+      <li><a href="homes/PageBuilding">Beauty Advice</a></li>
     </ul>
   </div>
 </div>
+
 <div class="wl-container">
   <% @total_price = 0 %>
   <% @items.each do |cart_items| %>
-    <div class = "listing-box">
-      <div class = "cart-img">
-        <%= image_tag Add.find(cart_items.adds_id).image, class:"wish-img" %>
-      </div>
-      <div class ="wishlt-details-div">
-        <p class = "wish-price"><%=  Add.find(cart_items.adds_id).name %> </p>
-        <p class = "wish-price"><%= @price =  Add.find(cart_items.adds_id).price %> </p>
-        <div class = "btn-redirect">
-          <div class = "xmark-div"><%= link_to  "/cart_delete/#{cart_items.id}", method: :delete, data: {confirm:
+    <div class="card" style="width: 18rem">
+      <%= image_tag Add.find(cart_items.adds_id).image, height:"300px" ,class: "img-card"%>
+      <div class="card-body">
+        <div class="card-title-holder">
+          <h5 class="card-title"><%= Add.find(cart_items.adds_id).name %></h5>
+        </div>
+        <p class="card-text">
+          <li>RS.<%= @price =  Add.find(cart_items.adds_id).price %> <i class="bx bxs-purchase-tag"></i></li>
+        </p>
+        <div class="btn-container">
+          <%= link_to  "/cart_delete/#{cart_items.id}", method: :delete, class:"btn btn-success", data: {confirm:
             'Are you sure ?'} do %><i class = "fa-solid fa-xmark"></i><%end%>
-          </div>
           <p class="quantity">Quantity : 
             <%= @quantity = cart_items.quantity %>
           </p>
         </div>
-      </div>
     </div>
-    <% @quantity_price = @quantity * @price %>
-    <% @total_price = @total_price + @quantity_price %>
+    </div>
+      <% @quantity_price = @quantity * @price %>
+      <% @total_price = @total_price + @quantity_price %>
   <% end %>
   <div class = "cart-total">
-    <p>Total - <span>&#8377;</span><span><%= @total_price %> </span></p>
-    <button>Pay Now</button>
+   <p>Total - <span>&#8377;</span><span><%= @total_price %> </span></p>
+    <%= link_to "homes/PageBuilding" do%><button>Pay Now</button><%end%>
   </div>
 </div>

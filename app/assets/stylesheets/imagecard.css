@@ -1,0 +1,52 @@
+
+.container-ab{
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.card-title-holder{
+    display: flex;
+    justify-content: space-between;
+}
+.btn-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.light-cross-holder{
+    font-size: 1.5rem;
+}
+.card{
+    margin: 10px;
+    border: 1px solid var(--primary);
+    overflow: hidden;
+}
+.btn.btn-success{
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+}
+.btn.btn-outline-success{
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn.btn-outline-success:hover{
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+    color: white;
+}
+.green{
+    color: var(--primary);
+}
+.green:hover{
+    color: red;
+}
+.bx.bxs-purchase-tag{
+    color: var(--primary);
+}
+.img-card{
+    border-bottom: 1px solid var(--primary);
+}
