@@ -1,7 +1,7 @@
 <div class="first-nav">
   <div class="container">
     <%= link_to '/', class:"logo"  do %><label> azhagu</label><%end%>
-      <div class="search_filter_div">
+    <div class="search_filter_div">
       <form action="/search" method="get">
         <input
          type="hidden"
@@ -16,16 +16,15 @@
       
       <%if session[:current_user_id] == nil %>
       <li>
-        <%= link_to '/wishlists', class: "class_link" do %>
-          <em class="bx bxs-heart"></em>
-
-        <% end %>
-      </li>
-      <li>
-        <%= link_to '/cart', class: "class_link" do %>
-          <em class="bx bxs-shopping-bag"></em>
-        <% end %>
-      </li>
+          <%= link_to '/wishlists', class: "class_link" do %>
+            <em class="bx bxs-heart"></em>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '/cart', class: "class_link" do %>
+            <em class="bx bxs-shopping-bag"></em>
+          <% end %>
+        </li>
         <li class="dropdown">
           <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <em class="bx bxs-user-circle"></em>
@@ -36,203 +35,195 @@
           </ul>
         </li>
       <%else%>
-      <li>
-        <%= link_to '/wishlists', class: "class_link" do %>
-          <em class="bx bxs-heart"><span><%= @wishlist_count %></span></em>
-
-        <% end %>
-      </li>
-      <li>
-        <%= link_to '/cart', class: "class_link" do %>
-          <em class="bx bxs-shopping-bag"><span><%= @cart_count %><span></em>
-        <% end %>
-      </li>
-        <li class="dropdown">
-          <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <em class="bx bxs-user-circle"></em>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="/signout">Profile</a></li>
-            <li><a class="dropdown-item" href="/signout"> <em class='bx bx-log-out'></em>Logout</a></li>
-          </ul>
-          <% logged_user = User.find(session[:current_user_id]) %>
-          <label class="user-name"><%= logged_user["name"] %></label>
+        <li>
+          <%= link_to '/wishlists', class: "class_link" do %>
+            <em class="bx bxs-heart"><span><%= @wishlist_count %></span></em>
+          <% end %>
         </li>
-      <%end%>
-    </ul>
-  </div>
-</div>
-
-
-<div class="second-nav">
-  <div class="container">
-    <ul>
-      <li><a href="/list_products">Categories</a></li>
-      <li><a href="homes/PageBuilding">Brands</a></li>
-      <li><a href="homes/PageBuilding">Offers</a></li>
-      <li><a href="homes/PageBuilding">Rewards</a></li>
-      <li><a href="homes/PageBuilding">Beauty Advice</a></li>
-    </ul>
-  </div>
-</div>
-<div id="demo" class="carousel slide" data-bs-ride="carousel">
-  <!-- Indicators/dots -->
-  <div class="carousel-indicators">
-    <button
+        <li>
+          <%= link_to '/cart', class: "class_link" do %>
+            <em class="bx bxs-shopping-bag"><span><%= @cart_count %><span></em>
+              <% end %>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-btn" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <em class="bx bxs-user-circle"></em>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/signout">Profile</a></li>
+                <li><a class="dropdown-item" href="/signout"> <em class='bx bx-log-out'></em>Logout</a></li>
+              </ul>
+              <% logged_user = User.find(session[:current_user_id]) %>
+              <label class="user-name"><%= logged_user["name"] %></label>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+    <div class="second-nav">
+      <div class="container">
+        <ul>
+          <li><a href="/list_products">Categories</a></li>
+          <li><a href="homes/PageBuilding">Brands</a></li>
+          <li><a href="homes/PageBuilding">Offers</a></li>
+          <li><a href="homes/PageBuilding">Rewards</a></li>
+          <li><a href="homes/PageBuilding">Beauty Advice</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+      <!-- Indicators/dots -->
+      <div class="carousel-indicators">
+        <button
       type="button"
       data-bs-target="#demo"
       data-bs-slide-to="0"
       class="active"
     ></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-  </div>
-  <!-- The slideshow/carousel -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= image_tag('makeup_carousel2.webp',class:"d-block", style:"width:100%", alt: "beauty_products")%>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag('makeup_carousel1.jpg',class:"d-block", style:"width:100%", alt: "beauty_products")
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+      </div>
+      <!-- The slideshow/carousel -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag('makeup_carousel2.webp',class:"d-block", style:"width:100%", alt: "beauty_products")%>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag('makeup_carousel1.jpg',class:"d-block", style:"width:100%", alt: "beauty_products")
       %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag('makeup_carousel.webp',class:"d-block", style:"width:100%", alt: "beauty_products")
+        </div>
+        <div class="carousel-item">
+          <%= image_tag('makeup_carousel.webp',class:"d-block", style:"width:100%", alt: "beauty_products")
       %>
-    </div>
-  </div>
-  <!-- Left and right controls/icons -->
-  <button
+        </div>
+      </div>
+      <!-- Left and right controls/icons -->
+      <button
     class="carousel-control-prev ace"
     type="button"
     data-bs-target="#demo"
     data-bs-slide="prev"
   >
-    <span class="carousel-control-prev-icon btn btn-outline-dark"></span>
-  </button>
-  <button
+        <span class="carousel-control-prev-icon btn btn-outline-dark"></span>
+      </button>
+      <button
     class="carousel-control-next ace"
     type="button"
     data-bs-target="#demo"
     data-bs-slide="next"
   >
-    <span class="carousel-control-next-icon  btn btn-outline-dark"></span>
-  </button>
-</div>
-<div class="main_div">
-  <div class="brands_logo">
-    <h3>Top Brands</h3>
-    <ul class="brand-holder">
-      <li>
-        <%= image_tag('brand_logo/maybelline_logo.png', style:"width:170px", alt: "beauty_products_brand") %>
-      </li>
-      <li>
-        <%= image_tag('brand_logo/nivea_logo.png', style:"width:170px", alt: "beauty_products_brand") %>
-      </li>
-      <li>
-        <%= image_tag('brand_logo/lakme_logo.png', style:"width:170px", alt: "beauty_products_brand") %>
-      </li>
-      <li>
-        <%= image_tag('brand_logo/nykaa_logo.svg', style:"width:170px", alt: "beauty_products_brand") %>
-      </li>
-      <li>
-        <%= image_tag('brand_logo/loreal-logo.png', style:"width:170px" , alt: "beauty_products_brand") %>
-      </li>
-    </ul>
-  </div>
-</div>
-<%# section new products ----------------------- %>
-<div class="container">
-  <h1>New Products</h1>
-  <div class="row row-cols-1 row-cols-md-4 g-4">
-    <div class="card">
-      <%= image_tag('beauty-products.jpg', class: "card-img-top", alt: "beauty_products") %>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
-        </p>
+        <span class="carousel-control-next-icon  btn btn-outline-dark"></span>
+      </button>
+    </div>
+    <div class="main_div">
+      <div class="brands_logo">
+        <h3>Top Brands</h3>
+        <ul class="brand-holder">
+          <li>
+            <%= image_tag('brand_logo/maybelline_logo.png', style:"width:170px", alt: "beauty_products_brand") %>
+          </li>
+          <li>
+            <%= image_tag('brand_logo/nivea_logo.png', style:"width:170px", alt: "beauty_products_brand") %>
+          </li>
+          <li>
+            <%= image_tag('brand_logo/lakme_logo.png', style:"width:170px", alt: "beauty_products_brand") %>
+          </li>
+          <li>
+            <%= image_tag('brand_logo/nykaa_logo.svg', style:"width:170px", alt: "beauty_products_brand") %>
+          </li>
+          <li>
+            <%= image_tag('brand_logo/loreal-logo.png', style:"width:170px" , alt: "beauty_products_brand") %>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="card">
-      <%= image_tag('body_oil.jpg', class: "card-img-top", alt: "beauty_products") %>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          This card has supporting text below as a natural lead-in to additional
-          content.
-        </p>
+    <%# section new products ----------------------- %>
+    <div class="container">
+      <h1>New Products</h1>
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="card">
+          <%= image_tag('beauty-products.jpg', class: "card-img-top", alt: "beauty_products") %>
+          <div class="card-body">
+            <h5 class="card-title">Makeup Kid</h5>
+            <p class="card-text">
+              Beyond elaborate packaging and exaggerated claims, the magic of the product always truly lies in the ingredients. They hold the product together for two reasons. A satisfying outcome and repeat customers. Everything from niacinamide to pure vitamin c, I’ve jotted down eight potent skin products powered with leading ingredients that are solely dedicated to target your specific problematic areas and thereby elevate the health of your skin.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <%= image_tag('body_oil.jpg', class: "card-img-top", alt: "beauty_products") %>
+          <div class="card-body">
+            <h5 class="card-title">Body Moisturizing Oil</h5>
+            <p class="card-text">
+              Coco Oils are our nature’s best kept secret and are also referred to as ‘essences’. These oils are botanical extracts of various plant materials such as flowers, herbs, roots, leaves, etc.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <%= image_tag('skin_care1.jpg', class: "card-img-top", alt: "beauty_products") %>
+          <div class="card-body">
+            <h5 class="card-title">Skin Care Cream</h5>
+            <p class="card-text">
+              Soothing, prebiotic skincare trio to the rescue of sensitive skin, Gently cleanses, tones and moisturises, leaving your skin feeling settled and smooth.
+              Gently cleanse your skin with BE GONE, our lightweight calming prebiotic facial cleanser to settle and soothe sensitive skin. Follow with TONING ESSENCE our alcohol-free facial cleansing toner that cools and refreshes your skin.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <%= image_tag('skin_care1.jpg', class: "card-img-top", alt: "beauty_products") %>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This card has even longer content than the
-          first to show that equal height action.
-        </p>
+    <%# image banner %>
+    <div class="container">
+      <br>
+      <br>
+      <br>
+      <%= image_tag("1955.jpg" ,width:"100%" ,height: "200px", alt: "beauty_products") %>
+      <br>
+      <br>
+      <br>
+      <br>
+      <%# image banner  %>
+      <%# section new products ends ------------------------ %>
+      <div class="slick_carousel">
+        <div>
+          <h3>
+            <img src="<%= asset_path 'face-gel.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
+          </h3>
+        </div>
+        <div>
+          <h3>
+            <img src="<%= asset_path 'compact.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
+          </h3>
+        </div>
+        <div>
+          <h3>
+            <img src="<%= asset_path 'nailpolish.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
+          </h3>
+        </div>
+        <div>
+          <h3>
+            <img src="<%= asset_path 'hair serum.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
+          </h3>
+        </div>
+        <div>
+          <h3>
+            <img src="<%= asset_path 'mascar.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
+          </h3>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-<%# image banner %>
-<div class="container">
-<br><br><br>
-
-
-<%= image_tag("1955.jpg" ,width:"100%" ,height: "200px", alt: "beauty_products") %>
-<br>
-<br><br><br>
-<%# image banner  %>
-<%# section new products ends ------------------------ %>
-
-  
-<div class="slick_carousel">
-  <div>
-    <h3>
-      <img src="<%= asset_path 'face-gel.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
-    </h3>
-  </div>
-  <div>
-    <h3>
-      <img src="<%= asset_path 'compact.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
-    </h3>
-  </div>
-  <div>
-    <h3>
-      <img src="<%= asset_path 'nailpolish.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
-    </h3>
-  </div>
-  <div>
-    <h3>
-      <img src="<%= asset_path 'hair serum.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
-    </h3>
-  </div>
-  <div>
-    <h3>
-      <img src="<%= asset_path 'mascar.jpg' %>" class="home_offer_img1" width="400px" height="250px"  alt= "beauty_products">
-    </h3>
-  </div>
-</div>
-
-</div>
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.slick_carousel').slick({
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          autoplay: false,
-          autoplaySpeed: 2000,
-          slidesToShow: 3,
-          arrows: true,
-          dots: false
-          });
-  });
-</script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.slick_carousel').slick({
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              autoplay: false,
+              autoplaySpeed: 2000,
+              slidesToShow: 3,
+              arrows: true,
+              dots: false
+              });
+      });
+    </script>
