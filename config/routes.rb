@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   post '/adding_products', to: 'adds#create'
 
-  get '/list_products', to: 'lists#new'
+  get '/list_products', to: 'lists#new', as: :list_products
   delete '/product_list_delete/:id', to: 'lists#product_list_delete'
 
   get '/wishlist/:product_id', to: 'lists#wishlist_items'
