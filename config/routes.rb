@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get '/cart/:product_id', to: 'lists#cart_items'
   get '/cart', to: 'shows#cart'
   delete '/cart_delete/:id', to: 'shows#cart_delete'
+  
 
   match '/search', to: 'lists#search', via: :get
 

@@ -18,6 +18,7 @@ class ListsController < ApplicationController
     @@presence_value = 0
   end
 
+  
   @@array = []
   @@presence_value = 0
 
